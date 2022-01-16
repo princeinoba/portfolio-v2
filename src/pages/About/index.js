@@ -204,10 +204,11 @@ const ProfileDetails = () => (
           </a>
         </li>
         <li className="mb-1">
-          <a href="https://github.com/prince.inoba/" className="icon-link">
+          <a href="https://github.com/princeinoba/" className="icon-link">
             <i className="fab fa-github" aria-hidden="true"></i>
             Github
           </a>
+
         </li>
         <li className="mb-1">
           <a href="https://www.linkedin.com/in/prince-inoba-803990121/" className="icon-link">
