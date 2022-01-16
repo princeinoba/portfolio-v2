@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import {Briefcase} from "react-feather";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
