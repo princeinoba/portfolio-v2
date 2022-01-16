@@ -1,13 +1,13 @@
 import React from "react";
-import displayImg from "./goodGames_display.png";
-import iconImg from "./goodGames_icon.png";
+import displayImg from "./work_display.png";
+import iconImg from "./work_icon.png";
 
 export const goodGames = {
-  title: "Good Games",
+  title: "Work Day Scheduler",
   infoPage: "/good-games",
-  url: "https://game-helper.herokuapp.com/",
-  repo: "https://github.com/LouisYS-Carleton/Game-Helper",
-  tagline: "An all-purpose video game tracker",
+  url: "https://princeinoba.github.io/bootcamp-homework5/",
+  repo: "https://github.com/princeinoba/bootcamp-homework5",
+  tagline: " Simple work-day-scheduler calendar that allows for user to enter tasks/events",
   img: {
     display: displayImg,
     icon: iconImg,
@@ -15,21 +15,25 @@ export const goodGames = {
   description: (
     <>
       <p>
-        The gaming industry is fast-paced and hard to keep up with. Not only are
-        new games constantly popping up and grabbing attention, but your growing
-        game collection can get scattered as you acquire them through different
-        means. Good Games is a team effort at keeping up with games all in one
-        place.
+        Purpose of this project is to create a simple work-day-scheduler calendar 
+        application that allows for user to enter tasks/events for that hour in 
+        the text area and save events for each hour of the day. Add important 
+        events to a daily planner to manage time effectively. This app runs in the 
+        browser and feature dynamically updated HTML and CSS powered by jQuery.
       </p>
       <p>
-        With an account, you get access to a feed of current games, upcoming
-        games and a search for different titles. If you see a game you own, you
-        can save it to your dashboard and view all your games together.
+        Description:
+        Using a daily planner to create a schedule. The current day is displayed 
+        at the top of the calendar. Timeblocks for standard business hours. Each 
+        timeblock is color coded to indicate whether it is in the past, present, 
+        or future. Click into a timeblock, enter and save an event. They may save 
+        their entries to local storage using the corresponding save button.
       </p>
       <p>
-        Good Games was only made possible through the Gamespot API. Because this
-        API is free and this project was only made for educational purposes, you{" "}
-        <em>might</em> hit the API limit as you browse around. (Sorry!)
+        The following demonstrates the application functionality: Main JavaScript 
+        Concepts Used, For loops Functions and callback functions, Using Local 
+        Storage accessClasses. Additional resources includes, Font Awesome 5, 
+        Bootstrap 4, Moment.js
       </p>
     </>
   ),
@@ -39,12 +43,12 @@ export const goodGames = {
       title: "Team Members",
       items: [
         {
-          name: "Louis Yacksmith",
-          link: "https://github.com/LouisYS-Carleton",
+          name: "Prince Inoba",
+          link: "https://princeinoba.github.io/bootcamp-homework5/",
         },
         {
-          name: "Natallie M’bayo",
-          link: "https://github.com/MbayoNatatallie",
+          name: "Prince Inoba",
+          link: "https://princeinoba.github.io/bootcamp-homework5/",
         },
       ],
     },
@@ -53,7 +57,7 @@ export const goodGames = {
       title: "API",
       items: [
         {
-          name: "Gamespot API",
+          name: "calender API",
           link: "https://www.gamespot.com/api/",
         },
       ],
