@@ -11,9 +11,12 @@ function Header() {
     <header>
       <Navbar expand="lg" bg="light">
         <Navbar.Brand>
-          <Link to="/">
-            {/* <Briefcase width={40} height={40} className="mr-1" alt="Home" loading="lazy"/> */}
-          </Link>
+          <h2>
+            <a href="/" className="icon-link">
+             <i className="fas fa-briefcase" aria-hidden="true"></i>
+            </a>
+          </h2>
+
         </Navbar.Brand>
         <Navbar.Toggle id="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
