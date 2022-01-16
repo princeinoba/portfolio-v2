@@ -169,7 +169,7 @@ const ProfileDetails = () => (
         <li className="mb-1">
           <a href="" className="icon-link">
             <i className="fas fa-map-pin" aria-hidden="true"></i>
-            Delta
+            Canada
           </a>
         </li>
 
