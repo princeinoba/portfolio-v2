@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import LinkList from "../../components/LinkList";
 
-import resume from "./princeInoba_resume2021.pdf";
+import resume from "./princeInoba_resume2022@.pdf";
 import { skills } from "./skills.js";
 import "./style.css";
 
