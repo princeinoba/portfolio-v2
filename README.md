@@ -1,6 +1,6 @@
 # My Portfolio Site
 
-![Portfolio website preview](./img/portfolio_preview.png)
+
 
 :link: [Portfolio Website](https://princeinoba.github.io/portfolio-v2/)
 
