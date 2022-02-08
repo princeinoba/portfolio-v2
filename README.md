@@ -2,7 +2,7 @@
 
 
 
-:link: [Portfolio Website](https://princeinoba.github.io/portfolio-v2/)
+:link: [Portfolio Website](https://inoba-portfolio.herokuapp.com/)
 
 View my most recent projects, get to know me a little more and feel free to reach out. If you're interested, you can also grab a copy of my resume.
 
