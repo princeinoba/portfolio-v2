@@ -30,7 +30,7 @@ function About() {
                     Carleton Coding Bootcamp.                 
                   </p>
                   <p>
-                    Full-stack developer with a background in Software Engineering
+                    Full-stack developer with a background in multimedia design
                     seeking to build elegant and intuitive websites. I love 
                     bringing design ideas to life through programming, 
                     I enjoy experimenting with web design and animations.
