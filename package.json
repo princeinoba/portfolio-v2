@@ -4,7 +4,7 @@
   "homepage": "https://princeinoba.github.io/portfolio-v2",
   "private": true,
   "engines": {
-    "node": "14.17.3"
+    "node": "24.x"
   },
   "dependencies": {
     "@formspree/react": "^2.2.3",
