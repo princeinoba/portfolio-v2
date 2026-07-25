@@ -145,6 +145,11 @@
       if (event.target === dialog) closeCommands();
     });
     document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && dialog.open) {
+        event.preventDefault();
+        closeCommands();
+        return;
+      }
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
         dialog.open ? closeCommands() : openCommands();

@@ -92,6 +92,12 @@ test("generated templates have semantic landmarks and no empty links", () => {
   assert.deepEqual(structuredData.map((entry) => entry["@type"]), ["Person", "WebSite", "ItemList"]);
 });
 
+test("client interaction source includes explicit Escape handling", async () => {
+  const source = await readFile(path.join(root, "src/static/assets/site.js"), "utf8");
+  assert.match(source, /event\.key === "Escape" && dialog\.open/);
+  assert.match(source, /lastCommandOpener\?\.focus\(\)/);
+});
+
 test("portfolio includes usable search and an explicit empty state", () => {
   const html = renderPortfolio(projects);
   assert.match(html, /data-project-search/);
