@@ -111,6 +111,11 @@ test("Vercel configuration is strict static output", async () => {
   assert.equal(config.outputDirectory, "dist");
   assert.equal(config.buildCommand, "npm run build");
   assert.equal(config.framework, null);
+  assert.equal(config.trailingSlash, true);
+  assert.ok(
+    config.redirects.every((redirect) => redirect.source.endsWith("/")),
+    "redirect sources must match Vercel trailing-slash-normalized request paths"
+  );
   const security = config.headers.find((entry) => entry.source === "/(.*)");
   const headerNames = new Set(security.headers.map((header) => header.key));
   assert.ok(headerNames.has("Content-Security-Policy"));
