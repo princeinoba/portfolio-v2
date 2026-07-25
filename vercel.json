@@ -6,15 +6,15 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
-    { "source": "/portfolio/bitgora", "destination": "/projects/teoyube/", "permanent": true },
-    { "source": "/portfolio/nominate-it", "destination": "/projects/nominate-it/", "permanent": true },
-    { "source": "/portfolio/bookie", "destination": "/projects/bookie/", "permanent": true },
-    { "source": "/portfolio/good-games", "destination": "/projects/work-day-scheduler/", "permanent": true },
-    { "source": "/portfolio/eat-local", "destination": "/projects/eat-local/", "permanent": true },
-    { "source": "/portfolio/eat-da-burger", "destination": "/projects/eat-da-burger/", "permanent": true },
-    { "source": "/portfolio/code-quiz", "destination": "/projects/code-quiz/", "permanent": true },
-    { "source": "/portfolio/weather-dashboard", "destination": "/projects/weather-dashboard/", "permanent": true },
-    { "source": "/Contact", "destination": "/contact/", "permanent": true }
+    { "source": "/portfolio/bitgora/", "destination": "/projects/teoyube/", "permanent": true },
+    { "source": "/portfolio/nominate-it/", "destination": "/projects/nominate-it/", "permanent": true },
+    { "source": "/portfolio/bookie/", "destination": "/projects/bookie/", "permanent": true },
+    { "source": "/portfolio/good-games/", "destination": "/projects/work-day-scheduler/", "permanent": true },
+    { "source": "/portfolio/eat-local/", "destination": "/projects/eat-local/", "permanent": true },
+    { "source": "/portfolio/eat-da-burger/", "destination": "/projects/eat-da-burger/", "permanent": true },
+    { "source": "/portfolio/code-quiz/", "destination": "/projects/code-quiz/", "permanent": true },
+    { "source": "/portfolio/weather-dashboard/", "destination": "/projects/weather-dashboard/", "permanent": true },
+    { "source": "/Contact/", "destination": "/contact/", "permanent": true }
   ],
   "headers": [
     {
