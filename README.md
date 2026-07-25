@@ -1,29 +1,99 @@
-# My Portfolio Site
+# Prince Inoba — Vercel-ready portfolio
 
+A modernized, statically generated portfolio rebuilt from the uploaded `portfolio-v2` archive. The project keeps the source-backed Portfolio, About, and Contact content while correcting data collisions, improving the professional journey, reducing the delivery footprint, and adding deterministic Vercel deployment controls.
 
+![Modernized portfolio homepage](docs/verification-screenshots/home-desktop.png)
 
-:link: [Portfolio Website](https://inoba-portfolio.herokuapp.com/)
+## What changed
 
-View my most recent projects, get to know me a little more and feel free to reach out. If you're interested, you can also grab a copy of my resume.
+- Real document routes instead of hash routing.
+- Nine reachable project case studies, including separate Teoyube and BitGora routes.
+- Explicit featured projects rather than export-order selection.
+- Responsive WebP screenshots with `srcset`, dimensions, and lazy loading.
+- Search, category filters, result count, reset, and empty state.
+- Responsive active navigation, light/dark theme, and `Ctrl/Cmd + K` quick navigation.
+- Corrected phone link and progressively enhanced Formspree contact form.
+- Unique page metadata, social preview, manifest, robots, optional sitemap, and security policy.
+- Vercel redirects for historical routes and migration support for old `#/...` links.
+- No client framework, runtime server, database, or external package dependency.
+- Automated content, route, asset, metadata, security, and output-budget verification.
 
-This portfolio was an ongoing effort throughout Bootcamp. It started with hard-coded HTML pages and has now turned into a React application.
+## Local commands
 
-## Purpose
+The project requires Node.js 24 for production parity. It also builds in the audit runtime under Node.js 22.
 
-My journey as a web developer has come a long way from `var` and
-
+```bash
+npm ci --ignore-scripts
+npm run verify
+npm run dev
 ```
-if (foo === true) {
-  return true;
-} else {
-  return false;
-}
+
+The preview server starts at `http://127.0.0.1:4173` unless `PORT` is set.
+
+### Scripts
+
+| Command | Purpose |
+|---|---|
+| `npm test` | Validate content identity, unique routes, images, contact data, templates, and Vercel configuration. |
+| `npm run build` | Generate the complete static site in `dist/`. |
+| `npm run verify` | Run tests, build, and production-output verification. |
+| `npm run dev` | Build and start the dependency-free preview server. |
+
+## Deploy to Vercel
+
+`vercel.json` already defines the build command, output directory, redirects, cache policy, and security headers.
+
+### Recommended: Git integration
+
+1. Put the contents of this folder at the root of a GitHub repository.
+2. Import that repository into Vercel.
+3. Keep the settings from `vercel.json`:
+   - Build command: `npm run build`
+   - Output directory: `dist`
+   - Framework preset: Other / no framework
+4. Deploy. No secret or database is required.
+5. Optionally add `SITE_URL=https://your-domain.example` for a custom canonical domain. When Vercel system variables are available, the build can use the production deployment URL automatically.
+
+### CLI
+
+From this project root, after authenticating the Vercel CLI:
+
+```bash
+npm run verify
+vercel
+vercel --prod
 ```
 
-My portfolio is a place to document that growth (and my current blunders). Feel free to contact me on any improvements I can make. I am always open for feedback. :smile:
+See [DEPLOYMENT.md](DEPLOYMENT.md) for the production checklist.
 
-## Built with:
+## Update portfolio content
 
-- [React](https://reactjs.org/)
-- [Bootstrap 4.5](https://getbootstrap.com/)
-- [Font Awesome 5](https://fontawesome.com/)
+- Personal information and navigation: `src/content/site.mjs`
+- Project records: `src/content/projects.mjs`
+- Page composition: `src/templates/pages.mjs`
+- Shared layout and metadata: `src/templates/layout.mjs`
+- Design system: `src/static/assets/site.css`
+- Progressive enhancement: `src/static/assets/site.js`
+- Project images: `src/static/assets/images/`
+- Resume: intentionally not published until a current, privacy-reviewed PDF is supplied.
+
+Run `npm run verify` after every content or route change.
+
+## Important owner review
+
+The uploaded 2022 resume is intentionally not published. Four project demos were verified live on July 25, 2026; five unavailable Heroku demos were removed from public links. Review [docs/content-review.md](docs/content-review.md) before future content updates.
+
+## Audit and evidence
+
+- [Complete product and code audit](docs/audit-report.md)
+- [Owner content review](docs/content-review.md)
+- [Verification report](docs/verification-report.md)
+- [Rendered verification captures](docs/verification-screenshots/)
+
+## Source integrity
+
+Uploaded archive SHA-256:
+
+```text
+7d16e0188619ebbab2f327dae8f8ea0d37ae9595942ed22cab7ca1943a340e1b
+```

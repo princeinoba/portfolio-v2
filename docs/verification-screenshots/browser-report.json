@@ -1,0 +1,70 @@
+{
+  "verifiedAt": "2026-07-25",
+  "browser": "Chrome via agent-browser 0.33.0",
+  "viewports": [
+    [
+      390,
+      844
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1440,
+      900
+    ]
+  ],
+  "routes": {
+    "home": "pass",
+    "portfolio": "pass",
+    "about": "pass",
+    "contact": "pass",
+    "teoyube": "pass",
+    "bitgora": "pass",
+    "notFound": "pass",
+    "legacyDirect": "pass",
+    "legacyHash": "pass"
+  },
+  "interactions": {
+    "mobileNavigation": "pass",
+    "activeNavigation": "pass",
+    "themePersistence": "pass",
+    "systemTheme": "pass",
+    "reducedMotion": "pass",
+    "commandPaletteSearch": "pass",
+    "escapeClose": "pass",
+    "focusReturn": "pass",
+    "portfolioSearch": "pass",
+    "categoryFilter": "pass",
+    "emptyState": "pass",
+    "resetNineProjects": "pass",
+    "contactValidation": "pass",
+    "contactMockedSuccess": "pass",
+    "contactMockedFailure": "pass"
+  },
+  "accessibility": {
+    "axeVersion": "4.12.1",
+    "wcagViolations": 0,
+    "incomplete": [
+      "Automated contrast calculation could not resolve CSS gradient backgrounds"
+    ],
+    "lighthouse": 100
+  },
+  "lighthouse": {
+    "performance": 99,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "consoleErrors": 0,
+  "pageErrors": 0,
+  "failedSameOriginRequests": 0,
+  "horizontalOverflowDefects": 0,
+  "missingImageAltAttributes": 0,
+  "emptyLinks": 0,
+  "notes": [
+    "No external contact message was sent; success and failure were tested with in-page fetch stubs.",
+    "Local sitemap omission is intentional until a production URL is available."
+  ]
+}
