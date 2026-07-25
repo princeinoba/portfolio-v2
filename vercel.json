@@ -1,0 +1,39 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/portfolio/bitgora", "destination": "/projects/teoyube/", "permanent": true },
+    { "source": "/portfolio/nominate-it", "destination": "/projects/nominate-it/", "permanent": true },
+    { "source": "/portfolio/bookie", "destination": "/projects/bookie/", "permanent": true },
+    { "source": "/portfolio/good-games", "destination": "/projects/work-day-scheduler/", "permanent": true },
+    { "source": "/portfolio/eat-local", "destination": "/projects/eat-local/", "permanent": true },
+    { "source": "/portfolio/eat-da-burger", "destination": "/projects/eat-da-burger/", "permanent": true },
+    { "source": "/portfolio/code-quiz", "destination": "/projects/code-quiz/", "permanent": true },
+    { "source": "/portfolio/weather-dashboard", "destination": "/projects/weather-dashboard/", "permanent": true },
+    { "source": "/Contact", "destination": "/contact/", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; base-uri 'self'; form-action 'self' https://formspree.io; connect-src 'self' https://formspree.io; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    }
+  ]
+}
