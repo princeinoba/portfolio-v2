@@ -7,9 +7,9 @@ A modernized, statically generated portfolio rebuilt from the uploaded `portfoli
 ## What changed
 
 - Real document routes instead of hash routing.
-- Nine reachable project case studies, including separate Teoyube and BitGora routes.
+- Fifteen reachable project case studies, including ten repository-verified current releases and separate Teoyube and BitGora routes.
 - Explicit featured projects rather than export-order selection.
-- Responsive WebP screenshots with `srcset`, dimensions, and lazy loading.
+- Responsive WebP screenshots captured from verified live interfaces, with `srcset`, dimensions, useful alternative text, and lazy loading.
 - Search, category filters, result count, reset, and empty state.
 - Responsive active navigation, light/dark theme, and `Ctrl/Cmd + K` quick navigation.
 - Corrected phone link and progressively enhanced Formspree contact form.
@@ -81,7 +81,7 @@ Run `npm run verify` after every content or route change.
 
 ## Important owner review
 
-The uploaded 2022 resume is intentionally not published. Four project demos were verified live on July 25, 2026; five unavailable Heroku demos were removed from public links. Review [docs/content-review.md](docs/content-review.md) before future content updates.
+The uploaded 2022 resume is intentionally not published. Thirteen project demos were verified live on July 29, 2026; unavailable demos remain unlinked. Review [docs/content-review.md](docs/content-review.md) before future content updates.
 
 ## Audit and evidence
 

@@ -13,7 +13,7 @@ function buttonLink(href, label, { secondary = false, external = false, download
 }
 
 function projectCard(project, { featured = false } = {}) {
-  const search = `${project.title} ${project.tagline} ${project.summary} ${project.categories.join(" ")} ${project.technologies.join(" ")}`.toLowerCase();
+  const search = `${project.title} ${project.tagline} ${project.summary} ${project.status} ${project.categories.join(" ")} ${project.technologies.join(" ")}`.toLowerCase();
   const categoryData = project.categories.map((category) => category.toLowerCase()).join("|");
   return `<article class="project-card${featured ? " project-card-featured" : ""}" data-project-card data-search="${escapeAttribute(search)}" data-categories="${escapeAttribute(categoryData)}" data-reveal>
     <a class="project-card-media" href="/projects/${escapeAttribute(project.id)}/" aria-label="Read the ${escapeAttribute(project.title)} case study">
@@ -22,11 +22,15 @@ function projectCard(project, { featured = false } = {}) {
     </a>
     <div class="project-card-body">
       <div class="project-card-meta"><span>${escapeHtml(project.categories[0])}</span><span>${escapeHtml(project.technologies.slice(0, 2).join(" · "))}</span></div>
+      <p class="project-card-status"><span class="status-dot" aria-hidden="true"></span>${escapeHtml(project.status)}</p>
       <h3><a href="/projects/${escapeAttribute(project.id)}/">${escapeHtml(project.title)}</a></h3>
       <p>${escapeHtml(project.tagline)}</p>
       <div class="project-card-footer">
         <a class="text-link" href="/projects/${escapeAttribute(project.id)}/">View case study${icon("arrow", "icon icon-sm")}</a>
-        <a class="icon-button project-source" href="${escapeAttribute(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeAttribute(project.title)} source on GitHub">${icon("github")}</a>
+        <span class="project-card-actions">
+          ${project.demoUrl ? `<a class="icon-button project-demo" href="${escapeAttribute(project.demoUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Open the verified ${escapeAttribute(project.title)} demo">${icon("external")}</a>` : ""}
+          <a class="icon-button project-source" href="${escapeAttribute(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeAttribute(project.title)} source on GitHub">${icon("github")}</a>
+        </span>
       </div>
     </div>
   </article>`;
@@ -80,7 +84,7 @@ export function renderHome(projects) {
 
   <section class="section-space section-muted">
     <div class="container-wide">
-      ${sectionHeading("Selected work", "Projects with product intent", "A focused view of the first three projects selected by the original portfolio, now presented as clear case-study entry points.")}
+      ${sectionHeading("Selected work", "Projects with product intent", "Three current projects that show the product boundary, implementation choices, and working interface behind each release.")}
       <div class="project-grid featured-grid">${featured.map((project) => projectCard(project, { featured: true })).join("")}</div>
       <div class="section-action" data-reveal>${buttonLink("/portfolio/", `View all ${projects.length} projects`)}</div>
     </div>
@@ -112,7 +116,7 @@ export function renderPortfolio(projects) {
   return `<section class="page-hero section-space-sm">
     <div class="container-wide page-hero-grid">
       <div data-reveal><p class="eyebrow">Portfolio</p><h1>Selected projects, organized for faster discovery.</h1></div>
-      <p data-reveal>Browse ${projects.length} projects preserved from the uploaded codebase. Search by title or technology, or narrow the list by project type.</p>
+      <p data-reveal>Browse ${projects.length} source-backed projects. Search by title or technology, narrow the list by project type, and open verified live releases where available.</p>
     </div>
   </section>
   <section class="section-space-sm portfolio-section">
@@ -210,17 +214,28 @@ export function renderProject(project, projects) {
   const related = projects
     .filter((candidate) => candidate.id !== project.id && candidate.categories.some((category) => project.categories.includes(category)))
     .slice(0, 3);
+  const study = project.caseStudy;
+  const structuredStudy = study ? `
+    <div class="case-study-pair">
+      <section class="case-section" data-reveal><p class="eyebrow">Problem</p><h2>What needed to change</h2><p>${escapeHtml(study.problem)}</p></section>
+      <section class="case-section" data-reveal><p class="eyebrow">Solution</p><h2>How the release responds</h2><p>${escapeHtml(study.solution)}</p></section>
+    </div>
+    <section class="case-section" data-reveal><p class="eyebrow">Key features</p><h2>What visitors can use</h2><ul class="case-list">${study.features.map((feature) => `<li><span>${icon("check")}</span>${escapeHtml(feature)}</li>`).join("")}</ul></section>
+    <section class="case-section" data-reveal><p class="eyebrow">Implementation</p><h2>How it was built</h2><ol class="implementation-list">${study.implementation.map((item, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span><p>${escapeHtml(item)}</p></li>`).join("")}</ol></section>
+    <section class="case-section" data-reveal><p class="eyebrow">Architecture</p><h2>Delivery shape</h2><p>${escapeHtml(study.architecture)}</p></section>
+    <section class="case-boundary" data-reveal><p class="eyebrow">Product boundary</p><h2>What this release does not claim</h2><ul>${study.boundaries.map((boundary) => `<li>${escapeHtml(boundary)}</li>`).join("")}</ul></section>` : "";
   return `<section class="project-hero section-space-sm">
     <div class="container-wide">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/portfolio/">Portfolio</a>${icon("chevron")}<span aria-current="page">${escapeHtml(project.title)}</span></nav>
       <div class="project-hero-grid">
         <div class="project-hero-copy" data-reveal>
           <p class="eyebrow">${escapeHtml(project.categories.join(" · "))}</p>
+          <p class="project-status"><span class="status-dot" aria-hidden="true"></span>${escapeHtml(project.status)}</p>
           <h1>${escapeHtml(project.title)}</h1>
           <p class="project-tagline">${escapeHtml(project.tagline)}</p>
           <div class="button-row">
             ${buttonLink(project.sourceUrl, "View source", { external: true, iconName: "github" })}
-            ${project.demoUrl ? buttonLink(project.demoUrl, "Open verified demo", { secondary: true, external: true, iconName: "external" }) : ""}
+            ${project.demoUrl ? buttonLink(project.demoUrl, "Open live demo", { secondary: true, external: true, iconName: "external" }) : ""}
           </div>
         </div>
         <div class="project-hero-media" data-reveal>${projectPicture(project, { eager: true, className: "project-detail-image" })}</div>
@@ -232,11 +247,19 @@ export function renderProject(project, projects) {
       <article class="case-study-main">
         <div data-reveal><p class="eyebrow">Overview</p><h2>What the project is designed to do</h2><p class="lead-copy">${escapeHtml(project.summary)}</p></div>
         <div class="prose" data-reveal>${project.details.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div>
-        ${project.collaborators?.length ? `<div class="case-block" data-reveal><h3>Collaborators named in the original project data</h3><p>${escapeHtml(project.collaborators.join(", "))}</p></div>` : ""}
+        ${structuredStudy}
+        ${project.collaborators?.length ? `<div class="case-block" data-reveal><h3>Collaborators named in the source data</h3><p>${escapeHtml(project.collaborators.join(", "))}</p></div>` : ""}
       </article>
       <aside class="case-study-aside" data-reveal>
         <div class="case-panel"><p class="eyebrow">Technology</p>${tagList(project.technologies, "tech-list")}</div>
-        <div class="case-panel"><p class="eyebrow">Original source mapping</p><dl><div><dt>Legacy route</dt><dd>${project.originalRoute ? `<code>${escapeHtml(project.originalRoute)}</code>` : "Not reachable in the legacy portfolio"}</dd></div><div><dt>Source</dt><dd>${externalLink(project.sourceUrl, "GitHub repository", { iconName: "github" })}</dd></div><div><dt>Demo</dt><dd>${project.demoUrl ? externalLink(project.demoUrl, "Verified live demo") : "Unavailable"}</dd></div></dl><p class="small-note">Demo status was checked on July 25, 2026. Unavailable links returned HTTP 404 and are not published.</p></div>
+        ${study?.integrations.length ? `<div class="case-panel"><p class="eyebrow">Integrations</p>${tagList(study.integrations, "tech-list", "Integrations")}</div>` : ""}
+        <div class="case-panel"><p class="eyebrow">Project links</p><dl>
+          <div><dt>Status</dt><dd>${escapeHtml(project.status)}</dd></div>
+          <div><dt>Source</dt><dd>${externalLink(project.sourceUrl, "GitHub repository", { iconName: "github" })}</dd></div>
+          <div><dt>Demo</dt><dd>${project.demoUrl ? externalLink(project.demoUrl, "Open live release") : "No public demo"}</dd></div>
+          <div><dt>Checked</dt><dd>${escapeHtml(project.demoChecked)}</dd></div>
+          ${project.originalRoute ? `<div><dt>Preserved legacy route</dt><dd><code>${escapeHtml(project.originalRoute)}</code></dd></div>` : ""}
+        </dl><p class="small-note">Links and status reflect direct repository and deployment verification. Portfolio demos are labelled according to their documented product boundaries.</p></div>
       </aside>
     </div>
   </section>

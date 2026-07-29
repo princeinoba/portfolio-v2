@@ -17,7 +17,7 @@ test("project identifiers, titles, and routes are unique", () => {
   assert.equal(new Set(ids).size, ids.length);
   assert.equal(new Set(titles).size, titles.length);
   assert.equal(new Set(legacyRoutes).size, legacyRoutes.length);
-  assert.equal(projects.length, 9);
+  assert.equal(projects.length, 15);
 });
 
 test("each project has deployable content and local responsive images", async () => {
@@ -25,6 +25,8 @@ test("each project has deployable content and local responsive images", async ()
     assert.match(project.id, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     assert.ok(project.summary.length >= 60, `${project.id} needs a useful summary`);
     assert.ok(project.details.length >= 2, `${project.id} needs structured details`);
+    assert.ok(project.status.length >= 8, `${project.id} needs a visible status`);
+    assert.ok(project.imageAlt.length >= 20, `${project.id} needs useful screenshot alt text`);
     assert.ok(project.technologies.length >= 3, `${project.id} needs technology evidence`);
     assert.doesNotThrow(() => new URL(project.sourceUrl));
     assert.ok(["verified-live", "unavailable"].includes(project.demoStatus));
@@ -38,10 +40,10 @@ test("each project has deployable content and local responsive images", async ()
   }
 });
 
-test("featured projects preserve the original first-three selection intent", () => {
+test("featured projects surface current, verified releases", () => {
   assert.deepEqual(
     projects.filter((project) => project.featured).map((project) => project.id),
-    ["teoyube", "nominate-it", "bookie"]
+    ["teoyube-scripture-intelligence", "ai-car-marketplace", "real-estate-hub"]
   );
 });
 
@@ -56,12 +58,33 @@ test("Teoyube and BitGora no longer collide", () => {
   assert.equal(legacyRouteMap["/portfolio/bitgora"], "/projects/teoyube/");
 });
 
-test("demo links reflect the July 25, 2026 availability check", () => {
+test("demo links reflect the July 29, 2026 verification", () => {
   assert.deepEqual(
     projects.filter((project) => project.demoStatus === "verified-live").map((project) => project.id),
-    ["work-day-scheduler", "eat-local", "code-quiz", "weather-dashboard"]
+    [
+      "teoyube-scripture-intelligence", "ai-car-marketplace", "real-estate-hub", "teoyube-frontend",
+      "ikea-clone-marketplace", "noel-college", "nominate-it", "bookie", "bitgora", "eat-local",
+      "work-day-scheduler", "code-quiz", "weather-dashboard"
+    ]
   );
-  assert.equal(projects.filter((project) => project.demoStatus === "unavailable").length, 5);
+  assert.equal(projects.filter((project) => project.demoStatus === "unavailable").length, 2);
+});
+
+test("the ten researched releases have complete evidence-based case studies", () => {
+  const researched = new Set([
+    "teoyube-scripture-intelligence", "real-estate-hub", "ai-car-marketplace", "teoyube-frontend",
+    "ikea-clone-marketplace", "noel-college", "bookie", "eat-local", "nominate-it", "bitgora"
+  ]);
+  for (const project of projects.filter((candidate) => researched.has(candidate.id))) {
+    assert.ok(project.caseStudy.problem.length >= 50);
+    assert.ok(project.caseStudy.solution.length >= 50);
+    assert.ok(project.caseStudy.features.length >= 5);
+    assert.ok(project.caseStudy.implementation.length >= 3);
+    assert.ok(project.caseStudy.architecture.length >= 50);
+    assert.ok(project.caseStudy.boundaries.length >= 2);
+  }
+  assert.doesNotMatch(JSON.stringify(projects), /github\.com\/ZiyongHe\/bitGora/);
+  assert.equal(projects.find((project) => project.id === "bitgora").sourceUrl, "https://github.com/princeinoba/bitGora");
 });
 
 test("visible telephone number and telephone link represent the same number", () => {
