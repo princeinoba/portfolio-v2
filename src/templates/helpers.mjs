@@ -45,15 +45,15 @@ export function externalLink(href, label, { className = "text-link", iconName = 
 }
 
 export function projectPicture(project, { eager = false, className = "project-image" } = {}) {
-  const title = escapeAttribute(`${project.title} interface preview`);
+  const title = escapeAttribute(project.imageAlt ?? `${project.title} interface preview`);
   return `<picture>
     <source srcset="/assets/images/${escapeAttribute(project.image)}-640.webp 640w, /assets/images/${escapeAttribute(project.image)}-1200.webp 1200w" type="image/webp" sizes="(max-width: 760px) 94vw, (max-width: 1100px) 45vw, 560px">
     <img class="${escapeAttribute(className)}" src="/assets/images/${escapeAttribute(project.image)}-1200.webp" width="1200" height="800" alt="${title}" loading="${eager ? "eager" : "lazy"}" decoding="async"${eager ? ' fetchpriority="high"' : ""}>
   </picture>`;
 }
 
-export function tagList(items, className = "tag-list") {
-  return `<ul class="${escapeAttribute(className)}" aria-label="Technologies">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+export function tagList(items, className = "tag-list", ariaLabel = "Technologies") {
+  return `<ul class="${escapeAttribute(className)}" aria-label="${escapeAttribute(ariaLabel)}">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
 }
 
 export function absoluteUrl(siteUrl, path) {
