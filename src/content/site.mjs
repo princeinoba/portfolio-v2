@@ -7,7 +7,7 @@ export const site = {
   phoneDisplay: "(647) 229-6001",
   phoneHref: "+16472296001",
   github: "https://github.com/princeinoba",
-  linkedin: "https://www.linkedin.com/in/prince-inoba-803990121/",
+  linkedin: "https://www.linkedin.com/in/prince-i-803990121/",
   formEndpoint: "https://formspree.io/f/xaylvwny",
   description:
     "Portfolio of Prince Inoba, an Ottawa-based software engineer and full-stack developer with a background in multimedia design.",
@@ -57,9 +57,13 @@ export const legacyRouteMap = {
   "/portfolio/bitgora": "/projects/teoyube/",
   "/portfolio/nominate-it": "/projects/nominate-it/",
   "/portfolio/bookie": "/projects/bookie/",
-  "/portfolio/good-games": "/projects/work-day-scheduler/",
+  "/portfolio/good-games": "/projects/daypilot-ai/",
   "/portfolio/eat-local": "/projects/eat-local/",
-  "/portfolio/eat-da-burger": "/projects/eat-da-burger/",
-  "/portfolio/code-quiz": "/projects/code-quiz/",
-  "/portfolio/weather-dashboard": "/projects/weather-dashboard/"
+  "/portfolio/eat-da-burger": "/projects/burgerforge-ai/",
+  "/portfolio/code-quiz": "/projects/codeclarity-ai/",
+  "/portfolio/weather-dashboard": "/projects/skyplan-weather-intelligence/",
+  "/projects/work-day-scheduler": "/projects/daypilot-ai/",
+  "/projects/eat-da-burger": "/projects/burgerforge-ai/",
+  "/projects/code-quiz": "/projects/codeclarity-ai/",
+  "/projects/weather-dashboard": "/projects/skyplan-weather-intelligence/"
 };

@@ -9,11 +9,15 @@
     "/portfolio/bitgora": "/projects/teoyube/",
     "/portfolio/nominate-it": "/projects/nominate-it/",
     "/portfolio/bookie": "/projects/bookie/",
-    "/portfolio/good-games": "/projects/work-day-scheduler/",
+    "/portfolio/good-games": "/projects/daypilot-ai/",
     "/portfolio/eat-local": "/projects/eat-local/",
-    "/portfolio/eat-da-burger": "/projects/eat-da-burger/",
-    "/portfolio/code-quiz": "/projects/code-quiz/",
-    "/portfolio/weather-dashboard": "/projects/weather-dashboard/"
+    "/portfolio/eat-da-burger": "/projects/burgerforge-ai/",
+    "/portfolio/code-quiz": "/projects/codeclarity-ai/",
+    "/portfolio/weather-dashboard": "/projects/skyplan-weather-intelligence/",
+    "/projects/work-day-scheduler": "/projects/daypilot-ai/",
+    "/projects/eat-da-burger": "/projects/burgerforge-ai/",
+    "/projects/code-quiz": "/projects/codeclarity-ai/",
+    "/projects/weather-dashboard": "/projects/skyplan-weather-intelligence/"
   };
 
   const hashPath = window.location.hash.startsWith("#/")

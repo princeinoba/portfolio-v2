@@ -17,7 +17,14 @@ test("project identifiers, titles, and routes are unique", () => {
   assert.equal(new Set(ids).size, ids.length);
   assert.equal(new Set(titles).size, titles.length);
   assert.equal(new Set(legacyRoutes).size, legacyRoutes.length);
-  assert.equal(projects.length, 15);
+  assert.equal(projects.length, 17);
+  assert.deepEqual(
+    projects.slice(-4).map((project) => project.id),
+    ["daypilot-ai", "burgerforge-ai", "codeclarity-ai", "skyplan-weather-intelligence"]
+  );
+  for (const retiredId of ["work-day-scheduler", "eat-da-burger", "code-quiz", "weather-dashboard"]) {
+    assert.equal(projects.some((project) => project.id === retiredId), false);
+  }
 });
 
 test("each project has deployable content and local responsive images", async () => {
@@ -56,25 +63,36 @@ test("Teoyube and BitGora no longer collide", () => {
   assert.equal(teoyube.originalRoute, "/portfolio/bitgora");
   assert.equal(bitgora.originalRoute, null);
   assert.equal(legacyRouteMap["/portfolio/bitgora"], "/projects/teoyube/");
+  assert.equal(legacyRouteMap["/portfolio/good-games"], "/projects/daypilot-ai/");
+  assert.equal(legacyRouteMap["/portfolio/eat-da-burger"], "/projects/burgerforge-ai/");
+  assert.equal(legacyRouteMap["/portfolio/code-quiz"], "/projects/codeclarity-ai/");
+  assert.equal(legacyRouteMap["/portfolio/weather-dashboard"], "/projects/skyplan-weather-intelligence/");
+  assert.equal(legacyRouteMap["/projects/work-day-scheduler"], "/projects/daypilot-ai/");
+  assert.equal(legacyRouteMap["/projects/eat-da-burger"], "/projects/burgerforge-ai/");
+  assert.equal(legacyRouteMap["/projects/code-quiz"], "/projects/codeclarity-ai/");
+  assert.equal(legacyRouteMap["/projects/weather-dashboard"], "/projects/skyplan-weather-intelligence/");
 });
 
-test("demo links reflect the July 29, 2026 verification", () => {
+test("demo links reflect the July 30, 2026 verification", () => {
   assert.deepEqual(
     projects.filter((project) => project.demoStatus === "verified-live").map((project) => project.id),
     [
       "teoyube-scripture-intelligence", "ai-car-marketplace", "real-estate-hub", "teoyube-frontend",
       "ikea-clone-marketplace", "noel-college", "nominate-it", "bookie", "bitgora", "eat-local",
-      "work-day-scheduler", "code-quiz", "weather-dashboard"
+      "teoyube-cooperation", "pantrylens-ai", "daypilot-ai", "burgerforge-ai", "codeclarity-ai",
+      "skyplan-weather-intelligence"
     ]
   );
-  assert.equal(projects.filter((project) => project.demoStatus === "unavailable").length, 2);
+  assert.equal(projects.filter((project) => project.demoStatus === "unavailable").length, 1);
 });
-
-test("the ten researched releases have complete evidence-based case studies", () => {
+test("the sixteen researched releases have complete evidence-based case studies", () => {
   const researched = new Set([
     "teoyube-scripture-intelligence", "real-estate-hub", "ai-car-marketplace", "teoyube-frontend",
-    "ikea-clone-marketplace", "noel-college", "bookie", "eat-local", "nominate-it", "bitgora"
+    "ikea-clone-marketplace", "noel-college", "bookie", "eat-local", "nominate-it", "bitgora",
+    "teoyube-cooperation", "pantrylens-ai", "daypilot-ai", "burgerforge-ai", "codeclarity-ai",
+    "skyplan-weather-intelligence"
   ]);
+  assert.equal(projects.filter((candidate) => researched.has(candidate.id)).length, 16);
   for (const project of projects.filter((candidate) => researched.has(candidate.id))) {
     assert.ok(project.caseStudy.problem.length >= 50);
     assert.ok(project.caseStudy.solution.length >= 50);
@@ -85,6 +103,10 @@ test("the ten researched releases have complete evidence-based case studies", ()
   }
   assert.doesNotMatch(JSON.stringify(projects), /github\.com\/ZiyongHe\/bitGora/);
   assert.equal(projects.find((project) => project.id === "bitgora").sourceUrl, "https://github.com/princeinoba/bitGora");
+});
+
+test("LinkedIn uses the owner-approved profile URL", () => {
+  assert.equal(site.linkedin, "https://www.linkedin.com/in/prince-i-803990121/");
 });
 
 test("visible telephone number and telephone link represent the same number", () => {

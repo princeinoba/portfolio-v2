@@ -171,6 +171,40 @@ export const projects = [
     sourceUrl: "https://github.com/princeinoba/eat-local", demoUrl: "https://eat-local-psi.vercel.app",
     image: "eat-local", imageAlt: "Eat Local home screen with fictional Ottawa restaurant discovery and ordering options"
   }),
+  modern({
+    id: "teoyube-cooperation", title: "Teoyube Cooperation", demoChecked: "July 30, 2026",
+    tagline: "Purpose-led software. Intelligent products. Built with clarity.",
+    summary: "A dependency-free company portfolio presenting Teoyube Cooperation's positioning, services, working process, founder story, selected projects, and evidence-labelled case studies without overstating business maturity.",
+    details: ["Thirty generated documents cover the company, seven service areas, projects, case studies, insights, contact, and quote preparation.", "A guarded contact function validates consent and input before an optional CRM webhook or Resend handoff; the public site remains useful without either integration."],
+    caseStudy: {
+      problem: "An early-stage software company needs a credible public presence while legal status, client outcomes, team scale, and long-term product plans may still be unverified.",
+      solution: "Separate confirmed product evidence from company aspirations, label case studies carefully, and pair a complete static experience with a narrow optional contact handoff.",
+      features: ["Company positioning and founder story", "Seven service-area pages", "Evidence-labelled project case studies", "Process, technology, and vision pages", "Consent-aware contact and quote preparation"],
+      implementation: ["A dependency-free generator creates 30 canonical documents and an offline-capable shell.", "Content and claims are encoded as reviewable source records.", "The contact function applies validation, request-size limits, a honeypot, and a rate guard before optional delivery."],
+      architecture: "Static generated pages are served from Vercel with browser-side progressive enhancement and one narrow Node.js contact function.",
+      integrations: ["Vercel Functions", "Optional Resend or CRM webhook"], boundaries: ["No verified claim of legal registration, clients, testimonials, revenue, adoption, team size, awards, or certifications", "Long-term Teoyube concepts are not presented as shipped products"]
+    },
+    categories: ["Full stack", "Product design", "Corporate website"], technologies: ["JavaScript", "Node.js", "Static generation", "Vercel Functions", "PWA"],
+    sourceUrl: "https://github.com/princeinoba/teoyube-cooperation", demoUrl: "https://teoyube-cooperation.vercel.app",
+    image: "teoyube-cooperation", imageAlt: "Teoyube Cooperation home page presenting purpose-led software services and selected work"
+  }),
+  modern({
+    id: "pantrylens-ai", title: "PantryLens AI", demoChecked: "July 30, 2026",
+    tagline: "See what you have. Plan what to cook.",
+    summary: "A local-first pantry and meal-planning product that turns reviewed ingredients into recipe discovery, exactly three explainable meal proposals, a private saved library, and a practical weekly plan.",
+    details: ["The complete experience works without secrets using eight original recipes, deterministic proposals, local pantry state, and JSON portability.", "Optional TheMealDB discovery, image assistance, and AI Gateway generation enhance the product without autonomously changing the pantry or plan."],
+    caseStudy: {
+      problem: "Meal-planning tools can require accounts, upload household data, or hide how suggestions were produced before users can get practical value.",
+      solution: "Keep pantry, saved recipes, ratings, notes, and plans in the browser; make every assisted result reviewable; and provide deterministic proposals when external services are absent.",
+      features: ["Local pantry with import and export", "Recipe search and optional catalogue discovery", "Exactly three reviewable meal proposals", "Private saved recipes, ratings, and notes", "Seven-day meal plan and shopping list"],
+      implementation: ["A dependency-free generator produces 20 canonical documents.", "Four functions expose health, optional recipe discovery, proposal generation, and image assistance.", "Input limits, ingredient review, deterministic fallbacks, and scoped storage keep optional assistance controlled."],
+      architecture: "Static generated pages and versioned local state form the base product, with four narrow Vercel Functions for optional external assistance.",
+      integrations: ["Vercel Functions", "Optional TheMealDB", "Optional Vercel AI Gateway"], boundaries: ["No accounts, database, billing, cloud pantry, public recipe publishing, analytics, or ads", "No nutrition, allergen, medical, or autonomous pantry-mutation claims"]
+    },
+    categories: ["AI", "Food", "Productivity"], technologies: ["JavaScript", "Node.js", "Vercel Functions", "Local Storage", "PWA"],
+    sourceUrl: "https://github.com/princeinoba/pantrylens-ai", demoUrl: "https://pantrylens-ai.vercel.app",
+    image: "pantrylens-ai", imageAlt: "PantryLens AI home page with pantry, recipe discovery, and meal-planning entry points"
+  }),
   {
     id: "teoyube", title: "Teoyube App", tagline: "An earlier Scripture-focused concept for personalized discovery and animated guidance.",
     summary: "The original portfolio describes Teoyube as a Bible research and animation application connecting Scripture promises with a user's circumstances and purpose.",
@@ -179,38 +213,74 @@ export const projects = [
     sourceUrl: "https://github.com/princeinoba/teoyube-app", demoUrl: null, demoStatus: "unavailable", status: "Source available", demoChecked: "July 29, 2026",
     image: "teoyube", imageAlt: "Earlier Teoyube application concept interface", featured: false, originalRoute: "/portfolio/bitgora"
   },
-  {
-    id: "work-day-scheduler", title: "Work Day Scheduler", tagline: "A browser-based daily planner with time-aware scheduling.",
-    summary: "A workday calendar that lets users enter and save tasks by hour while distinguishing past, present, and future time blocks.",
-    details: ["The current day appears above business-hour blocks, with entries saved locally.", "The project uses JavaScript, jQuery, Bootstrap, Moment.js, Font Awesome, and local storage."],
-    categories: ["Front end", "Productivity"], technologies: ["JavaScript", "jQuery", "Bootstrap", "Moment.js", "Local Storage"],
-    sourceUrl: "https://github.com/princeinoba/bootcamp-homework5", demoUrl: "https://princeinoba.github.io/bootcamp-homework5/", demoStatus: "verified-live", status: "Live demo", demoChecked: "July 29, 2026",
-    image: "work-day-scheduler", imageAlt: "Work Day Scheduler with hourly planning rows", featured: false, originalRoute: "/portfolio/good-games"
-  },
-  {
-    id: "eat-da-burger", title: "Eat Da Burger", tagline: "Log burgers to try, mark them devoured, and manage the list.",
-    summary: "An early full-stack project that moves burgers between planned and completed lists and persists records through a server-backed data model.",
-    details: ["Users create a burger, mark it devoured, and remove completed entries.", "The original portfolio identifies Handlebars, Bootstrap, Node.js, Express, and MySQL."],
-    categories: ["Full stack"], technologies: ["Node.js", "Express", "MySQL", "Handlebars", "Bootstrap"],
-    sourceUrl: "https://github.com/princeinoba/eat-da-burger", demoUrl: null, demoStatus: "unavailable", status: "Source available", demoChecked: "July 29, 2026",
-    image: "eat-da-burger", imageAlt: "Eat Da Burger project interface", featured: false, originalRoute: "/portfolio/eat-da-burger"
-  },
-  {
-    id: "code-quiz", title: "JavaScript Code Quiz", tagline: "A timed quiz with scoring and locally saved results.",
-    summary: "A five-question JavaScript quiz with a sixty-second timer, time penalties for incorrect answers, and a local high-score list.",
-    details: ["Remaining time becomes the final score; incorrect answers subtract ten seconds.", "The project uses browser events, timers, CSS transitions, and local storage."],
-    categories: ["Front end"], technologies: ["JavaScript", "CSS", "Local Storage", "Font Awesome"],
-    sourceUrl: "https://github.com/princeinoba/bootcamp-homework4", demoUrl: "https://princeinoba.github.io/bootcamp-homework4/", demoStatus: "verified-live", status: "Live demo", demoChecked: "July 29, 2026",
-    image: "code-quiz", imageAlt: "JavaScript Code Quiz question and timer interface", featured: false, originalRoute: "/portfolio/code-quiz"
-  },
-  {
-    id: "weather-dashboard", title: "Weather Dashboard", tagline: "Current conditions, a five-day forecast, and saved city searches.",
-    summary: "A weather planning dashboard that retrieves current conditions and forecast data while retaining recent searches in the browser.",
-    details: ["The current panel shows temperature, humidity, wind speed, and UV information.", "The project uses OpenWeather, Bootstrap, Font Awesome, JavaScript, and local storage."],
-    categories: ["Front end", "API"], technologies: ["JavaScript", "OpenWeather API", "Bootstrap", "Local Storage"],
-    sourceUrl: "https://github.com/princeinoba/bootcamp-homework6", demoUrl: "https://princeinoba.github.io/bootcamp-homework6/", demoStatus: "verified-live", status: "Live demo", demoChecked: "July 29, 2026",
-    image: "weather-dashboard", imageAlt: "Weather Dashboard current conditions and forecast interface", featured: false, originalRoute: "/portfolio/weather-dashboard"
-  }
+  modern({
+    id: "daypilot-ai", title: "DayPilot AI", originalRoute: "/portfolio/good-games", demoChecked: "July 30, 2026",
+    tagline: "Plan the day. Understand the trade-offs. Stay in control.",
+    summary: "A local-first, weather-aware workday planner with flexible tasks, date isolation, conflict and free-window analysis, and review-only planning proposals.",
+    details: ["Tasks support fifteen-minute timing, priority, category, notes, status, and weather sensitivity while versioned local storage provides migration, import, export, and undo.", "Open-Meteo context and optional AI wording feed a guarded proposal flow that must be previewed and revalidated before the user applies it."],
+    caseStudy: {
+      problem: "Simple hourly schedulers do not explain overlaps, workload, weather trade-offs, or what an automated planning suggestion would change.",
+      solution: "Model the workday as local user-owned data, calculate conflicts and free windows deterministically, and keep every suggested schedule change behind explicit review.",
+      features: ["Flexible fifteen-minute tasks", "Conflict, workload, and free-window analysis", "Opt-in weather and air-quality context", "Reviewable planning proposals", "Versioned local data with import, export, and undo"],
+      implementation: ["Next.js App Router and TypeScript separate planner-domain logic from presentation.", "Server route handlers normalize Open-Meteo data without exposing credentials.", "A deterministic assistant remains available when the optional AI SDK path is disabled."],
+      architecture: "A Next.js application keeps planner data in the browser and uses narrow route handlers for normalized weather context and optional proposal wording.",
+      integrations: ["Open-Meteo", "Optional Vercel AI SDK"], boundaries: ["No accounts, database, analytics, ads, background location, or assistant history", "The assistant cannot autonomously change a calendar and weather context is not an official warning"]
+    },
+    categories: ["AI", "Productivity", "Full stack"], technologies: ["Next.js", "React", "TypeScript", "Open-Meteo", "Local Storage"],
+    sourceUrl: "https://github.com/princeinoba/daypilot-ai", demoUrl: "https://daypilot-ai-dusky.vercel.app",
+    image: "daypilot-ai", imageAlt: "DayPilot AI planner showing a weather-aware schedule, task controls, and workload guidance"
+  }),
+  modern({
+    id: "burgerforge-ai", title: "BurgerForge AI", originalRoute: "/portfolio/eat-da-burger", demoChecked: "July 30, 2026",
+    tagline: "Build it. Stack it. Devour it.",
+    summary: "A playful local-first burger idea builder with exactly three explainable suggestions, a Devour Board, and a private Tasting Journal that works without an AI provider.",
+    details: ["Eight curated blueprints and deterministic suggestion logic keep the core builder complete without secrets.", "Visitors review suggestions before adding them to a local board, then move ideas from queued to devoured and record ratings or notes privately."],
+    caseStudy: {
+      problem: "A novelty burger logger offered little guidance and depended on a server-backed data model for a workflow that could remain private and portable.",
+      solution: "Turn the concept into a complete idea-to-tasting flow with local state, deterministic creativity, optional guarded AI, and explicit food-safety limits.",
+      features: ["Manual burger idea builder", "Exactly three reviewable suggestions", "Eight curated burger blueprints", "Queued and devoured board", "Private ratings, notes, import, and export"],
+      implementation: ["A dependency-free generator creates the static experience and offline shell.", "Scoped browser storage holds the board, journal, theme, and settings.", "Health and suggestion functions support optional AI while preserving deterministic fallback results."],
+      architecture: "Static generated pages use local state for all personal workflows and two narrow Vercel Functions for health and optional suggestions.",
+      integrations: ["Vercel Functions", "Optional Vercel AI Gateway"], boundaries: ["Creative inspiration only; no nutrition, allergen, medical, cooking-temperature, or cross-contact guidance", "No restaurant, ordering, account, database, analytics, or food-safety verification"]
+    },
+    categories: ["AI", "Food", "Product design"], technologies: ["JavaScript", "Node.js", "Vercel Functions", "Local Storage", "PWA"],
+    sourceUrl: "https://github.com/princeinoba/burgerforge-ai", demoUrl: "https://burgerforge-ai.vercel.app",
+    image: "burgerforge-ai", imageAlt: "BurgerForge AI home page with burger idea generation, Devour Board, and Tasting Journal"
+  }),
+  modern({
+    id: "codeclarity-ai", title: "CodeClarity AI", originalRoute: "/portfolio/code-quiz", demoChecked: "July 30, 2026",
+    tagline: "Test your skills. Understand every answer.",
+    summary: "A privacy-first JavaScript practice lab with a timed ten-question sprint, a searchable thirty-six-question bank, answer review, local progress, and an explainable Study Coach.",
+    details: ["The ninety-second sprint and broader practice mode preserve detailed review while progress and a personal leaderboard stay in the browser.", "The Study Coach builds deterministic study plans from local performance and can optionally refine wording through Vercel AI Gateway."],
+    caseStudy: {
+      problem: "A short timed quiz measured recall but did not support deeper review, repeat practice, explainable study planning, or portable local progress.",
+      solution: "Combine a focused sprint with a searchable practice bank and use transparent performance signals to generate a reviewable study plan.",
+      features: ["Ninety-second ten-question sprint", "Searchable thirty-six-question bank", "Answer review and explanations", "Local progress and personal leaderboard", "Deterministic Study Coach"],
+      implementation: ["A zero-dependency generator produces twelve canonical documents.", "Three functions expose health, question data, and optional coach wording.", "Versioned local storage keeps attempts, progress, and preferences private."],
+      architecture: "Static learning pages and local progress use narrow read-only or optional-assistance functions without a shared learner backend.",
+      integrations: ["Vercel Functions", "Optional Vercel AI Gateway"], boundaries: ["No account, database, analytics, cloud profile, public ranking, certification, or code execution", "Scores and study plans are practice feedback, not hiring or qualification evidence"]
+    },
+    categories: ["AI", "Education", "Front end"], technologies: ["JavaScript", "Node.js", "Vercel Functions", "Local Storage", "PWA"],
+    sourceUrl: "https://github.com/princeinoba/codeclarity-ai", demoUrl: "https://codeclarity-ai-tau.vercel.app",
+    image: "codeclarity-ai", imageAlt: "CodeClarity AI home page with sprint, question bank, progress, and Study Coach options"
+  }),
+  modern({
+    id: "skyplan-weather-intelligence", title: "SkyPlan Weather Intelligence", originalRoute: "/portfolio/weather-dashboard", demoChecked: "July 30, 2026",
+    tagline: "Forecast clearly. Plan confidently.",
+    summary: "A local-first weather intelligence product combining current conditions, hourly and ten-day forecasts, saved locations, comparison, air-quality context, and grounded planning guidance.",
+    details: ["City autocomplete, opt-in geolocation, unit controls, weather details, up to eight saved places, and two-to-three-location comparison support everyday planning.", "A tool-grounded planning assistant uses normalized Open-Meteo data and retains a deterministic response when optional AI rewriting is disabled."],
+    caseStudy: {
+      problem: "A basic weather dashboard showed raw conditions but did not help people compare places, understand broader conditions, or translate a forecast into a cautious plan.",
+      solution: "Normalize several public forecast sources into an accessible local-first interface and constrain planning guidance to the retrieved weather evidence.",
+      features: ["Current, thirty-six-hour, and ten-day forecasts", "Precipitation, air quality, UV, wind, visibility, and pressure", "Saved locations and multi-place comparison", "Opt-in geolocation and unit controls", "Tool-grounded planning assistant"],
+      implementation: ["A dependency-free generator creates eight canonical documents and an offline-capable shell.", "Four functions handle health, location search, normalized weather data, and planning guidance.", "Local preferences and caching keep saved places and display choices private."],
+      architecture: "Static generated pages use local preferences and four narrow Vercel Functions backed by Open-Meteo services.",
+      integrations: ["Open-Meteo Forecast", "Open-Meteo Air Quality", "Optional Vercel AI Gateway"], boundaries: ["No official weather warnings, safety guarantees, health advice, or exact-street claims", "Planning guidance is informational and does not replace authoritative local services"]
+    },
+    categories: ["AI", "API", "Productivity"], technologies: ["JavaScript", "Node.js", "Open-Meteo", "Vercel Functions", "PWA"],
+    sourceUrl: "https://github.com/princeinoba/skyplan-weather-intelligence", demoUrl: "https://skyplan-weather-intelligence.vercel.app",
+    image: "skyplan-weather-intelligence", imageAlt: "SkyPlan Weather Intelligence home page with forecast summaries, saved places, and planning tools"
+  })
 ];
 
 export const categories = ["All", ...Array.from(new Set(projects.flatMap((project) => project.categories))).sort()];

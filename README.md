@@ -7,7 +7,7 @@ A modernized, statically generated portfolio rebuilt from the uploaded `portfoli
 ## What changed
 
 - Real document routes instead of hash routing.
-- Fifteen reachable project case studies, including ten repository-verified current releases and separate Teoyube and BitGora routes.
+- Seventeen reachable project pages, including sixteen repository-verified current releases and a separate evidence-bounded Teoyube concept route.
 - Explicit featured projects rather than export-order selection.
 - Responsive WebP screenshots captured from verified live interfaces, with `srcset`, dimensions, useful alternative text, and lazy loading.
 - Search, category filters, result count, reset, and empty state.
@@ -81,7 +81,7 @@ Run `npm run verify` after every content or route change.
 
 ## Important owner review
 
-The uploaded 2022 resume is intentionally not published. Thirteen project demos were verified live on July 29, 2026; unavailable demos remain unlinked. Review [docs/content-review.md](docs/content-review.md) before future content updates.
+The uploaded 2022 resume is intentionally not published. Sixteen project demos were verified live on July 30, 2026; the unavailable Teoyube concept demo remains unlinked. Review [docs/content-review.md](docs/content-review.md) before future content updates.
 
 ## Audit and evidence
 
