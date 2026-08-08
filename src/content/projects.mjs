@@ -66,7 +66,7 @@ export const projects = [
       integrations: ["Vercel Functions"], boundaries: ["No owner tools, protected media, approvals, local paths, or secrets", "No claim that optional media is published"]
     },
     categories: ["Front end", "Faith technology", "Product concept"], technologies: ["JavaScript", "CSS", "HTML", "Vercel Functions", "Static JSON"],
-    sourceUrl: "https://github.com/princeinoba/teoyube-frontend", demoUrl: "https://teoyube-phase-1-sntz.vercel.app",
+    sourceUrl: "https://github.com/princeinoba/teoyube-frontend", demoUrl: "https://teoyube-frontend-css.vercel.app/",
     image: "teoyube-frontend", imageAlt: "Teoyube frontend Today screen with Scripture promise and ministry navigation"
   }),
   modern({
