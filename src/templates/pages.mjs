@@ -162,6 +162,7 @@ export function renderAbout() {
         <div class="prose-large" data-reveal>${site.about.slice(1).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div>
         <div class="button-row" data-reveal>
           ${buttonLink("/contact/", "Get in touch", { iconName: "send" })}
+          ${buttonLink(site.resumeUrl, "Download résumé", { secondary: true, download: true, iconName: "download" })}
         </div>
         <section class="about-section" aria-labelledby="skills-title">
           <div data-reveal><p class="eyebrow">Technical foundation</p><h2 id="skills-title">Skills represented in the uploaded portfolio</h2></div>
@@ -216,6 +217,7 @@ export function renderProject(project, projects) {
     .slice(0, 3);
   const study = project.caseStudy;
   const structuredStudy = study ? `
+    ${study.users ? `<section class="case-section" data-reveal><p class="eyebrow">Intended users</p><h2>Who the release supports</h2><p>${escapeHtml(study.users)}</p></section>` : ""}
     <div class="case-study-pair">
       <section class="case-section" data-reveal><p class="eyebrow">Problem</p><h2>What needed to change</h2><p>${escapeHtml(study.problem)}</p></section>
       <section class="case-section" data-reveal><p class="eyebrow">Solution</p><h2>How the release responds</h2><p>${escapeHtml(study.solution)}</p></section>

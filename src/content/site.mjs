@@ -9,6 +9,7 @@ export const site = {
   github: "https://github.com/princeinoba",
   linkedin: "https://www.linkedin.com/in/prince-i-803990121/",
   formEndpoint: "https://formspree.io/f/xaylvwny",
+  resumeUrl: "/assets/documents/prince-inoba-full-stack-software-developer-resume.pdf",
   description:
     "Portfolio of Prince Inoba, an Ottawa-based software engineer and full-stack developer with a background in multimedia design.",
   intro:
