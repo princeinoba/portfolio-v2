@@ -7,7 +7,8 @@ A modernized, statically generated portfolio rebuilt from the uploaded `portfoli
 ## What changed
 
 - Real document routes instead of hash routing.
-- Seventeen reachable project pages, including sixteen repository-verified current releases and a separate evidence-bounded Teoyube concept route.
+- Twenty-two reachable project pages, including twenty-one repository-verified current releases and a separate evidence-bounded Teoyube concept route.
+- A current privacy-reviewed résumé published as a direct download from the About page.
 - Explicit featured projects rather than export-order selection.
 - Responsive WebP screenshots captured from verified live interfaces, with `srcset`, dimensions, useful alternative text, and lazy loading.
 - Search, category filters, result count, reset, and empty state.
@@ -75,13 +76,13 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for the production checklist.
 - Design system: `src/static/assets/site.css`
 - Progressive enhancement: `src/static/assets/site.js`
 - Project images: `src/static/assets/images/`
-- Resume: intentionally not published until a current, privacy-reviewed PDF is supplied.
+- Résumé: `src/static/assets/documents/prince-inoba-full-stack-software-developer-resume.pdf`
 
 Run `npm run verify` after every content or route change.
 
 ## Important owner review
 
-The uploaded 2022 resume is intentionally not published. Sixteen project demos were verified live on July 30, 2026; the unavailable Teoyube concept demo remains unlinked. Review [docs/content-review.md](docs/content-review.md) before future content updates.
+The supplied privacy-reviewed résumé is published. Twenty-one project demos were verified live through August 21, 2026; the unavailable Teoyube concept demo remains unlinked. Review [docs/content-review.md](docs/content-review.md) before future content updates.
 
 ## Audit and evidence
 

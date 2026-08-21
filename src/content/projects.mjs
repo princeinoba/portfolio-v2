@@ -205,6 +205,96 @@ export const projects = [
     sourceUrl: "https://github.com/princeinoba/pantrylens-ai", demoUrl: "https://pantrylens-ai.vercel.app",
     image: "pantrylens-ai", imageAlt: "PantryLens AI home page with pantry, recipe discovery, and meal-planning entry points"
   }),
+  modern({
+    id: "rj-rogers-digital-demo", title: "RJ Rogers Landscaping Digital Experience", status: "Live portfolio demonstration", demoChecked: "August 21, 2026",
+    tagline: "A connected landscaping customer journey and synthetic field-operations concept for Ottawa.",
+    summary: "An independent portfolio demonstration connecting responsive landscaping discovery, a guided project request, and a synthetic operations workspace without presenting itself as an affiliated or production service.",
+    details: ["Public service, project, process, community, FAQ, and contact routes lead into a reviewable three-step project request that remains non-binding.", "A clearly labelled Directors AI Workspace and Field Desk use fictional records to explore leads, scheduling, jobs, customers, materials, invoices, and bounded assistance."],
+    caseStudy: {
+      users: "Prospective Ottawa landscaping customers, plus fictional directors and field teams evaluating a connected operations concept.",
+      problem: "A landscaping website needs to move visitors from visual discovery to a useful project conversation while keeping operational and AI demonstrations separate from real business systems.",
+      solution: "Connect a responsive public journey to a consent-aware request flow, then place the deeper operations concept behind explicit portfolio-demo labelling and synthetic data.",
+      features: ["Responsive service and project discovery", "Three-step project request review", "Project stories and process guidance", "Synthetic Directors AI Workspace", "Mobile Field Desk and accessible interaction states"],
+      implementation: ["Next.js App Router composes the public and workspace routes.", "TypeScript models shared project, lead, scheduling, job, material, and invoice concepts.", "The request and workspace flows use synthetic or client-side state rather than claiming production persistence."],
+      architecture: "A Next.js and React application delivers public marketing routes and a separate synthetic operations workspace, with Drizzle models documenting a future persistence boundary.",
+      integrations: ["Vercel deployment"], boundaries: ["Independent portfolio demonstration with no affiliation or endorsement by RJ Rogers Landscaping", "No production database, private uploads, real authentication, email delivery, Redis, or live AI is enabled"]
+    },
+    categories: ["Full stack", "Business operations", "Product design"], technologies: ["Next.js", "React", "TypeScript", "Drizzle ORM", "Tailwind CSS"],
+    sourceUrl: "https://github.com/princeinoba/rj-rogers-digital-demo", demoUrl: "https://rj-rogers-digital-demo.vercel.app/",
+    image: "rj-rogers-digital-demo", imageAlt: "RJ Rogers landscaping portfolio demonstration home page with an Ottawa outdoor-space project and quote entry points"
+  }),
+  modern({
+    id: "dutchgreen-digital-demo", title: "DutchGreen Digital Demo", status: "Live portfolio demonstration", demoChecked: "August 21, 2026",
+    tagline: "A connected landscaping estimate journey and synthetic operations workspace for Ottawa.",
+    summary: "An independent DutchGreen portfolio demonstration pairing responsive landscape-service discovery with a guided estimate flow and a clearly separated fictional customer and field-operations workspace.",
+    details: ["Visitors can explore services and projects before preparing a three-step estimate request with validation, review, and explicit demonstration boundaries.", "A cookie-gated portfolio workspace presents synthetic leads, customers, jobs, schedules, crews, materials, invoices, and deterministic assistance without real authentication."],
+    caseStudy: {
+      users: "Prospective Ottawa landscaping customers and fictional operations staff reviewing estimate, scheduling, and field-work workflows.",
+      problem: "A public landscaping experience and an internal operations concept needed to feel connected without implying that estimates, accounts, notifications, or customer records were operating in production.",
+      solution: "Build one coherent responsive journey, label the workspace as a portfolio demonstration, validate requests at the API boundary, and keep all operational records fictional.",
+      features: ["Service and project discovery", "Three-step estimate preparation", "Responsive customer and operations workspace", "Lead, job, crew, material, and invoice views", "Deterministic and clearly labelled assistance"],
+      implementation: ["Next.js Server Components provide the route foundation with small interactive client islands.", "Zod validates and limits the estimate request handled by the same-origin API.", "A local HttpOnly cookie opens the synthetic workspace while persistence and notification delivery remain disabled."],
+      architecture: "A Next.js and React application separates public routes, a validation-focused estimate endpoint, and cookie-gated synthetic workspace routes without a production data backend.",
+      integrations: ["Vercel deployment"], boundaries: ["Independent portfolio demonstration with synthetic records and photos, not an affiliated DutchGreen service", "No real customer data, identity provider, persistence, appointments, notifications, or remote AI"]
+    },
+    categories: ["Full stack", "Business operations", "Product design"], technologies: ["Next.js", "React", "TypeScript", "Zod", "Vercel"],
+    sourceUrl: "https://github.com/princeinoba/dutchgreen-digital-demo", demoUrl: "https://dutchgreen-digital-demo.vercel.app/",
+    image: "dutchgreen-digital-demo", imageAlt: "DutchGreen digital demo home page with Ottawa landscaping services, a project image, and estimate actions"
+  }),
+  modern({
+    id: "garderie-oasis-digital-demo", title: "Garderie Oasis Digital Experience", status: "Live portfolio demonstration", demoChecked: "August 21, 2026",
+    tagline: "A bilingual childcare discovery, tour-preview, and synthetic director-workflow demonstration.",
+    summary: "An independent bilingual childcare portfolio experience combining public program information, a privacy-minimized tour preview, a bounded content guide, and a protected synthetic director workflow.",
+    details: ["Families can switch languages, explore programs and daily experience, prepare a three-step tour preview, and follow the official City of Ottawa Registry boundary.", "The director demonstration uses fictional inquiries, schedules, notes, staff, settings, and reviewed FAQ proposals; no request is submitted to a childcare operator."],
+    caseStudy: {
+      users: "Families exploring bilingual childcare information and fictional childcare directors or staff evaluating inquiry and scheduling workflows.",
+      problem: "Phone-and-email-only tour discovery and an earlier blank route made it difficult to understand programs, next steps, and the distinction between a digital preview and Ottawa's official childcare process.",
+      solution: "Create a mobile-first bilingual path from program discovery to a privacy-minimized tour preview, keep official registry guidance visible, and isolate the synthetic director workflow.",
+      features: ["English and French public experience", "Three-step tour preview", "Official City of Ottawa Registry handoff", "Synthetic inquiry and calendar workflow", "Bounded approved-content Oasis Guide"],
+      implementation: ["Next.js and React compose bilingual public and protected demonstration routes.", "Zod validation and request limits constrain the tour-preview API.", "The PWA caches the public shell while private routes and fictional workflow state remain outside offline storage."],
+      architecture: "A Next.js application combines bilingual public content, a narrow tour-preview endpoint, a deterministic content guide, and a cookie-protected synthetic director workspace.",
+      integrations: ["City of Ottawa Registry links"], boundaries: ["Not a childcare operator, application, waitlist, booking service, or Garderie-operated product", "No persistence, delivery, Supabase connection, remote AI, email, SMS, analytics, or real child and family records"]
+    },
+    categories: ["Education", "Full stack", "Product design"], technologies: ["Next.js", "React", "TypeScript", "Zod", "PWA"],
+    sourceUrl: "https://github.com/princeinoba/garderie-oasis-digital-demo", demoUrl: "https://garderie-oasis-digital-demo.vercel.app/",
+    image: "garderie-oasis-digital-demo", imageAlt: "Garderie Oasis bilingual childcare demo home page with a bright classroom and tour and program actions"
+  }),
+  modern({
+    id: "nurtureops-ai", title: "NurtureOps AI", status: "Live synthetic-data demo", demoChecked: "August 21, 2026",
+    tagline: "Human-centred childcare operations with explainable, approval-first assistance.",
+    summary: "A synthetic-data childcare operations demonstration spanning attendance, room planning, family updates, billing, role-aware workflows, and a proposal-first Care Copilot without handling real childcare records.",
+    details: ["Director, educator, and guardian route shells frame idempotent attendance, correction history, bounded offline queuing, care logs, and deterministic billing with synthetic invoices.", "Care Copilot exposes typed read and proposal tools with evidence, warnings, sensitive-field controls, approval steps, and no autonomous mutation."],
+    caseStudy: {
+      users: "Synthetic childcare directors, educators, and guardians evaluating role-aware operational workflows without real family or child data.",
+      problem: "Childcare teams coordinate time-sensitive attendance, care, family, and billing work, but a portfolio demonstration must not imply compliance, safeguarding, payments, or real-data handling.",
+      solution: "Model operational workflows with synthetic identities, relationship-aware access rules, deterministic domain logic, and human-reviewed AI proposals that cannot write directly.",
+      features: ["Role-aware director, educator, and guardian surfaces", "Idempotent attendance and correction history", "Deterministic billing and synthetic invoices", "Bounded offline workflow queue", "Evidence-backed proposal-first Care Copilot"],
+      implementation: ["Next.js App Router and TypeScript organize public, role-specific, and operational routes.", "PostgreSQL migrations define row-level security across the synthetic multi-role data model.", "Vercel AI SDK tool contracts enforce sensitive-field filtering, review steps, and a bounded no-mutation assistant loop."],
+      architecture: "A Next.js and React PWA combines browser-side synthetic workflows with a Supabase and PostgreSQL security model and an optional, disabled-by-default remote AI boundary.",
+      integrations: ["Supabase", "Vercel AI SDK"], boundaries: ["Synthetic-data portfolio demonstration only, not a live childcare, medical, safeguarding, compliance, messaging, or payment system", "No public signup, real child or family data, production payments, cloud document storage, analytics, or autonomous AI writes"]
+    },
+    categories: ["AI", "Full stack", "Education"], technologies: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Vercel AI SDK", "PWA"],
+    sourceUrl: "https://github.com/princeinoba/nurtureops-ai", demoUrl: "https://nurtureops-ai.vercel.app/",
+    image: "nurtureops-ai", imageAlt: "NurtureOps AI home page presenting a synthetic childcare operations workspace and human-reviewed assistance"
+  }),
+  modern({
+    id: "hearthops-ai", title: "HearthOps AI", status: "Live synthetic-data demo", demoChecked: "August 21, 2026",
+    tagline: "Home-care scheduling, field coordination, and handoffs in one calm operating rhythm.",
+    summary: "A synthetic home-care operations demonstration connecting an agency hub, caregiver field application, consent-scoped care-circle portal, and optional proposal-first operations copilot.",
+    details: ["Agency, caregiver, and care-circle surfaces cover schedules, visits, recipients, workforce, requests, messages, billing, reports, consent, and a bounded offline queue.", "The optional copilot uses typed read, proposal, and draft tools with evidence and approval boundaries; it does not write records or provide clinical guidance."],
+    caseStudy: {
+      users: "Synthetic home-care agency coordinators, caregivers, and consent-scoped care-circle members evaluating coordinated operational workflows.",
+      problem: "Home-care coordination spans agency dispatch, field execution, family visibility, and handoffs, while a portfolio product must avoid implying clinical, EHR, EVV, payment, or compliance capability.",
+      solution: "Unify the three operational perspectives around deterministic scheduling and consent-aware information, then constrain assistance to explainable drafts and proposals requiring human action.",
+      features: ["Agency scheduling and operations hub", "Caregiver field workflow and offline queue", "Consent-scoped care-circle portal", "Deterministic scheduling and travel buffers", "Typed proposal-first operations copilot"],
+      implementation: ["Next.js and React provide distinct agency, field, and care-circle route groups.", "Supabase Auth, PostgreSQL row-level security, tenant keys, and private storage define the production-oriented security boundary.", "Vercel AI SDK tools remain optional and guarded, with no direct record mutations."],
+      architecture: "A Next.js PWA separates agency, caregiver, and care-circle experiences over a tenant-aware Supabase and PostgreSQL model with optional proposal-only AI assistance.",
+      integrations: ["Supabase", "Vercel AI SDK"], boundaries: ["Synthetic clean-room demonstration, not a clinical system, EHR, certified EVV product, payment service, or compliance guarantee", "No real PHI, exact travel calculation, autonomous scheduling, production messaging, or AI record writes"]
+    },
+    categories: ["AI", "Full stack", "Business operations"], technologies: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Vercel AI SDK", "PWA"],
+    sourceUrl: "https://github.com/princeinoba/hearthops-ai", demoUrl: "https://hearthops-ai.vercel.app/",
+    image: "hearthops-ai", imageAlt: "HearthOps AI dark home page presenting synthetic home-care operations and an agency workspace preview"
+  }),
   {
     id: "teoyube", title: "Teoyube App", tagline: "An earlier Scripture-focused concept for personalized discovery and animated guidance.",
     summary: "The original portfolio describes Teoyube as a Bible research and animation application connecting Scripture promises with a user's circumstances and purpose.",

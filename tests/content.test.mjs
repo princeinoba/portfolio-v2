@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 import { projects } from "../src/content/projects.mjs";
 import { legacyRouteMap, site } from "../src/content/site.mjs";
 import { renderLayout } from "../src/templates/layout.mjs";
-import { renderHome, renderPortfolio } from "../src/templates/pages.mjs";
+import { renderAbout, renderHome, renderPortfolio, renderProject } from "../src/templates/pages.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -17,7 +17,11 @@ test("project identifiers, titles, and routes are unique", () => {
   assert.equal(new Set(ids).size, ids.length);
   assert.equal(new Set(titles).size, titles.length);
   assert.equal(new Set(legacyRoutes).size, legacyRoutes.length);
-  assert.equal(projects.length, 17);
+  assert.equal(projects.length, 22);
+  assert.deepEqual(
+    projects.slice(12, 17).map((project) => project.id),
+    ["rj-rogers-digital-demo", "dutchgreen-digital-demo", "garderie-oasis-digital-demo", "nurtureops-ai", "hearthops-ai"]
+  );
   assert.deepEqual(
     projects.slice(-4).map((project) => project.id),
     ["daypilot-ai", "burgerforge-ai", "codeclarity-ai", "skyplan-weather-intelligence"]
@@ -73,26 +77,28 @@ test("Teoyube and BitGora no longer collide", () => {
   assert.equal(legacyRouteMap["/projects/weather-dashboard"], "/projects/skyplan-weather-intelligence/");
 });
 
-test("demo links reflect the July 30, 2026 verification", () => {
+test("demo links reflect direct deployment verification", () => {
   assert.deepEqual(
     projects.filter((project) => project.demoStatus === "verified-live").map((project) => project.id),
     [
       "teoyube-scripture-intelligence", "ai-car-marketplace", "real-estate-hub", "teoyube-frontend",
       "ikea-clone-marketplace", "noel-college", "nominate-it", "bookie", "bitgora", "eat-local",
-      "teoyube-cooperation", "pantrylens-ai", "daypilot-ai", "burgerforge-ai", "codeclarity-ai",
-      "skyplan-weather-intelligence"
+      "teoyube-cooperation", "pantrylens-ai", "rj-rogers-digital-demo", "dutchgreen-digital-demo",
+      "garderie-oasis-digital-demo", "nurtureops-ai", "hearthops-ai", "daypilot-ai", "burgerforge-ai",
+      "codeclarity-ai", "skyplan-weather-intelligence"
     ]
   );
   assert.equal(projects.filter((project) => project.demoStatus === "unavailable").length, 1);
 });
-test("the sixteen researched releases have complete evidence-based case studies", () => {
+test("the twenty-one researched releases have complete evidence-based case studies", () => {
   const researched = new Set([
     "teoyube-scripture-intelligence", "real-estate-hub", "ai-car-marketplace", "teoyube-frontend",
     "ikea-clone-marketplace", "noel-college", "bookie", "eat-local", "nominate-it", "bitgora",
-    "teoyube-cooperation", "pantrylens-ai", "daypilot-ai", "burgerforge-ai", "codeclarity-ai",
-    "skyplan-weather-intelligence"
+    "teoyube-cooperation", "pantrylens-ai", "rj-rogers-digital-demo", "dutchgreen-digital-demo",
+    "garderie-oasis-digital-demo", "nurtureops-ai", "hearthops-ai", "daypilot-ai", "burgerforge-ai",
+    "codeclarity-ai", "skyplan-weather-intelligence"
   ]);
-  assert.equal(projects.filter((candidate) => researched.has(candidate.id)).length, 16);
+  assert.equal(projects.filter((candidate) => researched.has(candidate.id)).length, 21);
   for (const project of projects.filter((candidate) => researched.has(candidate.id))) {
     assert.ok(project.caseStudy.problem.length >= 50);
     assert.ok(project.caseStudy.solution.length >= 50);
@@ -105,8 +111,40 @@ test("the sixteen researched releases have complete evidence-based case studies"
   assert.equal(projects.find((project) => project.id === "bitgora").sourceUrl, "https://github.com/princeinoba/bitGora");
 });
 
+test("the five refreshed project records retain exact links and complete case-study routes", () => {
+  const expected = {
+    "rj-rogers-digital-demo": ["https://github.com/princeinoba/rj-rogers-digital-demo", "https://rj-rogers-digital-demo.vercel.app/"],
+    "dutchgreen-digital-demo": ["https://github.com/princeinoba/dutchgreen-digital-demo", "https://dutchgreen-digital-demo.vercel.app/"],
+    "garderie-oasis-digital-demo": ["https://github.com/princeinoba/garderie-oasis-digital-demo", "https://garderie-oasis-digital-demo.vercel.app/"],
+    "nurtureops-ai": ["https://github.com/princeinoba/nurtureops-ai", "https://nurtureops-ai.vercel.app/"],
+    "hearthops-ai": ["https://github.com/princeinoba/hearthops-ai", "https://hearthops-ai.vercel.app/"],
+  };
+
+  for (const [id, [sourceUrl, demoUrl]] of Object.entries(expected)) {
+    const project = projects.find((candidate) => candidate.id === id);
+    assert.ok(project, id + " must be present");
+    assert.equal(project.sourceUrl, sourceUrl);
+    assert.equal(project.demoUrl, demoUrl);
+    assert.ok(project.caseStudy.users.length >= 50, id + " needs specific intended users");
+    const html = renderProject(project, projects);
+    assert.match(html, /Intended users/);
+    assert.ok(html.includes('href="' + sourceUrl + '"'));
+    assert.ok(html.includes('href="' + demoUrl + '"'));
+    assert.doesNotMatch(html, /href="(?:#|javascript:|https:\/\/example\.com)/);
+  }
+});
+
 test("LinkedIn uses the owner-approved profile URL", () => {
   assert.equal(site.linkedin, "https://www.linkedin.com/in/prince-i-803990121/");
+});
+
+test("the privacy-reviewed résumé is published from the About page", async () => {
+  assert.equal(site.resumeUrl, "/assets/documents/prince-inoba-full-stack-software-developer-resume.pdf");
+  const resumePath = path.join(root, "src/static", site.resumeUrl.replace(/^\/+/, ""));
+  await access(resumePath);
+  const signature = (await readFile(resumePath)).subarray(0, 5).toString("ascii");
+  assert.equal(signature, "%PDF-");
+  assert.match(renderAbout(), /href="\/assets\/documents\/prince-inoba-full-stack-software-developer-resume\.pdf" download/);
 });
 
 test("visible telephone number and telephone link represent the same number", () => {

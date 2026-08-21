@@ -117,7 +117,9 @@ const sourceCss = await readFile(path.join(dist, "assets/site.css"), "utf8");
 assert.ok(Buffer.byteLength(sourceCss) < 60_000, "CSS budget exceeded 60 KB uncompressed");
 
 const totalBytes = (await Promise.all(files.map(async (file) => (await stat(file)).size))).reduce((sum, size) => sum + size, 0);
-assert.ok(totalBytes < 2 * 1024 * 1024, `dist exceeds the 2 MiB budget: ${totalBytes} bytes`);
+// The 3 MiB cap includes 22 responsive project-image pairs and the owner-reviewed résumé PDF.
+const outputBudgetBytes = 3 * 1024 * 1024;
+assert.ok(totalBytes < outputBudgetBytes, `dist exceeds the 3 MiB budget: ${totalBytes} bytes`);
 
 console.log(`Verified ${htmlFiles.length} HTML files and ${files.length} total build files.`);
 console.log(`Static output size: ${(totalBytes / 1024 / 1024).toFixed(2)} MiB.`);
