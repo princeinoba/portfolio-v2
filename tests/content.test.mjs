@@ -17,10 +17,14 @@ test("project identifiers, titles, and routes are unique", () => {
   assert.equal(new Set(ids).size, ids.length);
   assert.equal(new Set(titles).size, titles.length);
   assert.equal(new Set(legacyRoutes).size, legacyRoutes.length);
-  assert.equal(projects.length, 22);
+  assert.equal(projects.length, 27);
   assert.deepEqual(
     projects.slice(12, 17).map((project) => project.id),
     ["rj-rogers-digital-demo", "dutchgreen-digital-demo", "garderie-oasis-digital-demo", "nurtureops-ai", "hearthops-ai"]
+  );
+  assert.deepEqual(
+    projects.slice(17, 22).map((project) => project.id),
+    ["luna-salon-digital-demo", "pressroute-ai", "motorintake-ai", "inkroute-ai", "buildflow-ai"]
   );
   assert.deepEqual(
     projects.slice(-4).map((project) => project.id),
@@ -84,21 +88,23 @@ test("demo links reflect direct deployment verification", () => {
       "teoyube-scripture-intelligence", "ai-car-marketplace", "real-estate-hub", "teoyube-frontend",
       "ikea-clone-marketplace", "noel-college", "nominate-it", "bookie", "bitgora", "eat-local",
       "teoyube-cooperation", "pantrylens-ai", "rj-rogers-digital-demo", "dutchgreen-digital-demo",
-      "garderie-oasis-digital-demo", "nurtureops-ai", "hearthops-ai", "daypilot-ai", "burgerforge-ai",
+      "garderie-oasis-digital-demo", "nurtureops-ai", "hearthops-ai", "luna-salon-digital-demo",
+      "pressroute-ai", "motorintake-ai", "inkroute-ai", "buildflow-ai", "daypilot-ai", "burgerforge-ai",
       "codeclarity-ai", "skyplan-weather-intelligence"
     ]
   );
   assert.equal(projects.filter((project) => project.demoStatus === "unavailable").length, 1);
 });
-test("the twenty-one researched releases have complete evidence-based case studies", () => {
+test("the twenty-six researched releases have complete evidence-based case studies", () => {
   const researched = new Set([
     "teoyube-scripture-intelligence", "real-estate-hub", "ai-car-marketplace", "teoyube-frontend",
     "ikea-clone-marketplace", "noel-college", "bookie", "eat-local", "nominate-it", "bitgora",
     "teoyube-cooperation", "pantrylens-ai", "rj-rogers-digital-demo", "dutchgreen-digital-demo",
-    "garderie-oasis-digital-demo", "nurtureops-ai", "hearthops-ai", "daypilot-ai", "burgerforge-ai",
+    "garderie-oasis-digital-demo", "nurtureops-ai", "hearthops-ai", "luna-salon-digital-demo",
+    "pressroute-ai", "motorintake-ai", "inkroute-ai", "buildflow-ai", "daypilot-ai", "burgerforge-ai",
     "codeclarity-ai", "skyplan-weather-intelligence"
   ]);
-  assert.equal(projects.filter((candidate) => researched.has(candidate.id)).length, 21);
+  assert.equal(projects.filter((candidate) => researched.has(candidate.id)).length, 26);
   for (const project of projects.filter((candidate) => researched.has(candidate.id))) {
     assert.ok(project.caseStudy.problem.length >= 50);
     assert.ok(project.caseStudy.solution.length >= 50);
@@ -131,6 +137,29 @@ test("the five refreshed project records retain exact links and complete case-st
     assert.ok(html.includes('href="' + sourceUrl + '"'));
     assert.ok(html.includes('href="' + demoUrl + '"'));
     assert.doesNotMatch(html, /href="(?:#|javascript:|https:\/\/example\.com)/);
+  }
+});
+
+test("the five new projects retain verified links and complete case studies", () => {
+  const expected = {
+    "luna-salon-digital-demo": ["https://github.com/princeinoba/luna-salon-digital-demo", "https://luna-salon-digital-demo.vercel.app/"],
+    "pressroute-ai": ["https://github.com/princeinoba/pressroute-ai", "https://pressroute-ai.vercel.app/"],
+    "motorintake-ai": ["https://github.com/princeinoba/motorintake-ai", "https://motorintake-ai.vercel.app/"],
+    "inkroute-ai": ["https://github.com/princeinoba/inkroute-ai", "https://inkroute-ai.vercel.app/"],
+    "buildflow-ai": ["https://github.com/princeinoba/buildflow-ai", "https://buildflow-digital-demo.vercel.app/"],
+  };
+
+  for (const [id, [sourceUrl, demoUrl]] of Object.entries(expected)) {
+    const project = projects.find((candidate) => candidate.id === id);
+    assert.ok(project, id + " must be present");
+    assert.equal(project.sourceUrl, sourceUrl);
+    assert.equal(project.sourceAccess, "private");
+    assert.equal(project.demoUrl, demoUrl);
+    assert.ok(project.caseStudy.users.length >= 50);
+    const html = renderProject(project, projects);
+    assert.match(html, /Intended users/);
+    assert.ok(html.includes('href="' + sourceUrl + '"'));
+    assert.ok(html.includes('href="' + demoUrl + '"'));
   }
 });
 

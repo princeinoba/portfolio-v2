@@ -29,7 +29,7 @@ function projectCard(project, { featured = false } = {}) {
         <a class="text-link" href="/projects/${escapeAttribute(project.id)}/">View case study${icon("arrow", "icon icon-sm")}</a>
         <span class="project-card-actions">
           ${project.demoUrl ? `<a class="icon-button project-demo" href="${escapeAttribute(project.demoUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Open the verified ${escapeAttribute(project.title)} demo">${icon("external")}</a>` : ""}
-          <a class="icon-button project-source" href="${escapeAttribute(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeAttribute(project.title)} source on GitHub">${icon("github")}</a>
+          <a class="icon-button project-source" href="${escapeAttribute(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${project.sourceAccess === "private" ? `Open the private ${escapeAttribute(project.title)} repository on GitHub; authorized access is required` : `View ${escapeAttribute(project.title)} source on GitHub`}">${icon("github")}</a>
         </span>
       </div>
     </div>
@@ -236,7 +236,7 @@ export function renderProject(project, projects) {
           <h1>${escapeHtml(project.title)}</h1>
           <p class="project-tagline">${escapeHtml(project.tagline)}</p>
           <div class="button-row">
-            ${buttonLink(project.sourceUrl, "View source", { external: true, iconName: "github" })}
+            ${buttonLink(project.sourceUrl, project.sourceAccess === "private" ? "Open private source" : "View source", { external: true, iconName: "github" })}
             ${project.demoUrl ? buttonLink(project.demoUrl, "Open live demo", { secondary: true, external: true, iconName: "external" }) : ""}
           </div>
         </div>
@@ -257,11 +257,11 @@ export function renderProject(project, projects) {
         ${study?.integrations.length ? `<div class="case-panel"><p class="eyebrow">Integrations</p>${tagList(study.integrations, "tech-list", "Integrations")}</div>` : ""}
         <div class="case-panel"><p class="eyebrow">Project links</p><dl>
           <div><dt>Status</dt><dd>${escapeHtml(project.status)}</dd></div>
-          <div><dt>Source</dt><dd>${externalLink(project.sourceUrl, "GitHub repository", { iconName: "github" })}</dd></div>
+          <div><dt>Source</dt><dd>${externalLink(project.sourceUrl, project.sourceAccess === "private" ? "Private GitHub repository" : "GitHub repository", { iconName: "github" })}</dd></div>
           <div><dt>Demo</dt><dd>${project.demoUrl ? externalLink(project.demoUrl, "Open live release") : "No public demo"}</dd></div>
           <div><dt>Checked</dt><dd>${escapeHtml(project.demoChecked)}</dd></div>
           ${project.originalRoute ? `<div><dt>Preserved legacy route</dt><dd><code>${escapeHtml(project.originalRoute)}</code></dd></div>` : ""}
-        </dl><p class="small-note">Links and status reflect direct repository and deployment verification. Portfolio demos are labelled according to their documented product boundaries.</p></div>
+        </dl><p class="small-note">Links and status reflect direct repository and deployment verification. Private repositories require authorized GitHub access. Portfolio demos are labelled according to their documented product boundaries.</p></div>
       </aside>
     </div>
   </section>

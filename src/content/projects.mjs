@@ -295,6 +295,96 @@ export const projects = [
     sourceUrl: "https://github.com/princeinoba/hearthops-ai", demoUrl: "https://hearthops-ai.vercel.app/",
     image: "hearthops-ai", imageAlt: "HearthOps AI dark home page presenting synthetic home-care operations and an agency workspace preview"
   }),
+  modern({
+    id: "luna-salon-digital-demo", title: "Luna Salon Concierge", status: "Live synthetic portfolio demo", demoChecked: "September 4, 2026",
+    tagline: "Consultation-first salon discovery with human review and bounded assistance.",
+    summary: "An independent salon portfolio demonstration connecting service and stylist discovery, guided consultation and group requests, a bounded concierge, and a read-only synthetic staff studio.",
+    details: ["Visitors can explore services and stylists, prepare a progressively enhanced three-step consultation, or start a bridal and group request without creating an account or claiming an appointment.", "A separate Salon Studio previews inquiry, handoff, client, content, analytics, and AI-review workflows with synthetic records and clearly disabled production integrations."],
+    caseStudy: {
+      users: "People exploring salon services or preparing a consultation, plus fictional salon staff evaluating inquiry and handoff workflows.",
+      problem: "Complex salon requests need more context than a booking slot, while a portfolio release must avoid inventing availability, pricing, diagnoses, or completed appointments.",
+      solution: "Lead with service and stylist discovery, collect reviewable consultation context, and constrain both the concierge and staff preview to approved information and human decisions.",
+      features: ["Responsive services and stylist discovery", "Three-step consultation request", "Bridal and group inquiry flow", "Approved-knowledge concierge", "Read-only synthetic Salon Studio"],
+      implementation: ["Next.js App Router and React compose public, staff, and API route groups.", "Native Server Actions use shared Zod validation, honeypots, same-origin checks, idempotency, and explicit consent versioning.", "The optional OpenAI path is server-only, source-bounded, tool-free, and replaced by deterministic fail-closed responses when unavailable."],
+      architecture: "A TypeScript Next.js application combines public routes, process-local demonstration submissions, narrow APIs, and a separated read-only staff studio.",
+      integrations: ["Vercel", "Optional OpenAI via Vercel AI SDK"], boundaries: ["Independent portfolio demonstration with synthetic people, records, locations, images, and business details", "No durable database, production authentication, email delivery, photo upload, live booking, pricing, availability, diagnosis, or AI mutation"]
+    },
+    categories: ["AI", "Full stack", "Product design"], technologies: ["Next.js", "React", "TypeScript", "Zod", "Vercel AI SDK"],
+    sourceUrl: "https://github.com/princeinoba/luna-salon-digital-demo", sourceAccess: "private", demoUrl: "https://luna-salon-digital-demo.vercel.app/",
+    image: "luna-salon-digital-demo", imageAlt: "Luna Salon Concierge home page with a stylist consultation scene and consultation-first actions"
+  }),
+  modern({
+    id: "pressroute-ai", title: "PressRoute AI", status: "Live synthetic portfolio demo", demoChecked: "September 4, 2026",
+    tagline: "One governed front door for advertising, subscription, and editorial inquiries.",
+    summary: "An independent publishing and advertising concierge demonstration combining public inquiry routes with a synthetic role-aware workspace for triage, campaigns, proposals, analytics, knowledge, routing, and human-controlled suggestions.",
+    details: ["The public experience routes advertising, subscription, editorial, and fallback requests through clear entry points and includes a client-side request tracker.", "A broad staff workspace demonstrates synthetic inquiry and campaign operations while keeping editorial material outside AI context and every suggested action under human control."],
+    caseStudy: {
+      users: "Publishing audiences submitting advertising, subscription, or editorial inquiries, plus fictional operations teams reviewing and routing those requests.",
+      problem: "Publishing inquiries arrive through different departments and formats, making responsible routing difficult without blurring editorial separation or overstating automated capability.",
+      solution: "Provide one branded intake surface, deterministic department routing, and a role-aware synthetic workspace where AI remains suggestion-only and editorial content stays excluded.",
+      features: ["Advertising, subscription, and editorial inquiry routes", "Request tracking experience", "Synthetic staff triage and campaign workspace", "Interactive routing-policy tester", "Constrained human-reviewed Copilot demonstration"],
+      implementation: ["A Next.js and React application lives in the repository's web workspace and exposes public, access, and operations shells.", "TypeScript modules centralize release policy, deterministic routing, workspace fixtures, and interactive tools.", "The same source supports a native Next.js Vercel build and a separately preserved Vinext Sites target."],
+      architecture: "A TypeScript application separates public inquiry pages, staff-access routes, and synthetic workspace routes, with no production data or messaging backend.",
+      integrations: ["Vercel", "Vinext build target"], boundaries: ["All visible records are synthetic and the interface makes no affiliation claim", "No production authentication, durable database, private object storage, outbound email, background jobs, paid model provider, autonomous pricing, publishing, routing, or sending"]
+    },
+    categories: ["AI", "Full stack", "Business operations"], technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vinext"],
+    sourceUrl: "https://github.com/princeinoba/pressroute-ai", sourceAccess: "private", demoUrl: "https://pressroute-ai.vercel.app/",
+    image: "pressroute-ai", imageAlt: "PressRoute AI home page with publishing inquiry actions and a synthetic inquiry-routing preview"
+  }),
+  modern({
+    id: "motorintake-ai", title: "MotorIntake AI", status: "Live synthetic portfolio demo", demoChecked: "September 4, 2026",
+    tagline: "A clear route into fictional automotive service, vehicle discovery, and trade-in requests.",
+    summary: "An independent automotive portfolio demonstration combining public service intake, synthetic vehicle discovery, trade-in and test-drive flows, bounded concierge guidance, and a read-only operations studio.",
+    details: ["Responsive public routes cover services, inventory, vehicle details, contact, FAQ, privacy, and accessibility, with multi-step service, test-drive, trade-in, and general-request journeys.", "A fixed-data Studio previews inquiries, appointments, vehicles, customers, estimates, repair orders, trade-ins, knowledge, and AI review while every operational mutation remains disabled."],
+    caseStudy: {
+      users: "People exploring fictional automotive services or vehicles, plus fictional dealership and service-centre staff reviewing operational workflows.",
+      problem: "Automotive intake spans service, sales, test drives, and trade-ins, but a demonstration must not imply diagnosis, pricing, appraisal, availability, booking, or customer-data retention.",
+      solution: "Offer distinct reviewable intake paths, synthetic inventory, stateless opaque receipts, and locally classified concierge guidance backed by explicit refusal and fail-closed rules.",
+      features: ["Service, vehicle, trade-in, and test-drive journeys", "Synthetic inventory and vehicle detail pages", "No-JavaScript service intake", "Bounded deterministic concierge", "Read-only synthetic operations Studio"],
+      implementation: ["Next.js App Router, React, and strict TypeScript define public, intake, API, and Studio route groups.", "Zod validates public requests, which return opaque demonstration receipts and discard submitted visitor content in the Vercel portfolio configuration.", "The optional OpenAI adapter receives only a finite locally derived intent and approved copy; urgent, prohibited, disabled, or failed paths stay local."],
+      architecture: "A Next.js application pairs stateless public request routes and synthetic fixed-data operations views with optional, server-only wording assistance.",
+      integrations: ["Vercel", "Optional OpenAI via Vercel AI SDK"], boundaries: ["Every business, person, vehicle, price, record, contact detail, and photograph is synthetic", "No real booking, diagnosis, quote, trade-in appraisal, messaging, customer persistence, paid database, storage, SMS, or managed authentication"]
+    },
+    categories: ["AI", "Full stack", "Automotive"], technologies: ["Next.js", "React", "TypeScript", "Zod", "Vercel AI SDK"],
+    sourceUrl: "https://github.com/princeinoba/motorintake-ai", sourceAccess: "private", demoUrl: "https://motorintake-ai.vercel.app/",
+    image: "motorintake-ai", imageAlt: "MotorIntake AI home page with automotive service, vehicle shopping, and trade-in request entry points"
+  }),
+  modern({
+    id: "inkroute-ai", title: "InkRoute AI", status: "Live synthetic portfolio demo", demoChecked: "September 4, 2026",
+    tagline: "A governed route from printing brief to human-reviewed production planning.",
+    summary: "An independent printing and marketing concierge demonstration connecting service discovery, a resilient quote wizard, request tracking, and a protected synthetic staff workspace for production and commercial workflows.",
+    details: ["The public experience includes five service routes, a six-step request wizard, a compact no-JavaScript intake route, tracking, FAQ, contact, legal, and accessibility pages.", "The staff workspace demonstrates synthetic quotes, customers, jobs, proofs, artwork, inventory, campaigns, invoices, payments, analytics, knowledge, and bounded deterministic assistance."],
+    caseStudy: {
+      users: "People preparing print and marketing requests, plus fictional staff coordinating estimating, proofs, artwork, production, delivery, and commercial records.",
+      problem: "Print inquiries scatter specifications, artwork, deadlines, and delivery context across messages, while automation can easily overstate pricing, approval, or production authority.",
+      solution: "Collect a structured, reviewable brief, keep its route and status visible, and place every operational or assisted action behind synthetic data and human approval boundaries.",
+      features: ["Five public service routes", "Six-step resilient quote wizard", "Compact no-JavaScript intake", "Request tracking experience", "Synthetic production and marketing workspace"],
+      implementation: ["Next.js App Router and React separate public, authentication, staff, and API boundaries.", "Strict TypeScript, Zod, Drizzle schemas, and guarded lifecycle transitions model the workflow without claiming live operations.", "A deterministic assistant works without a provider, while external email, live AI, payments, and production mutations remain disabled."],
+      architecture: "A single Next.js application combines public intake and tracking with a protected synthetic staff workspace and documented adapter boundaries for future durable services.",
+      integrations: ["Vercel"], boundaries: ["Independent portfolio demonstration using synthetic .test records with no affiliation or endorsement claim", "Browser-local demonstration state is not durable persistence; external email, live AI, payment processing, and production-system mutations are disabled"]
+    },
+    categories: ["AI", "Full stack", "Business operations"], technologies: ["Next.js", "React", "TypeScript", "Drizzle ORM", "Zod", "Tailwind CSS"],
+    sourceUrl: "https://github.com/princeinoba/inkroute-ai", sourceAccess: "private", demoUrl: "https://inkroute-ai.vercel.app/",
+    image: "inkroute-ai", imageAlt: "InkRoute AI home page with print quote actions and a synthetic production-request preview"
+  }),
+  modern({
+    id: "buildflow-ai", title: "CP & Son BuildFlow", status: "Live fictional portfolio demo", demoChecked: "September 4, 2026",
+    tagline: "A clearer residential-construction journey with guarded operational workflows.",
+    summary: "An independent fictional general-contractor experience combining public renovation discovery and consultation with a guarded staff workspace for leads, projects, scheduling, estimating, documentation, and constrained assistance.",
+    details: ["Public routes cover services, fictional projects, process, about, FAQ, consultation, contact, privacy, and accessibility with clear non-binding review language.", "A signed demonstration session protects synthetic staff routes spanning leads, projects, schedules, customers, crews, materials, estimates, invoices, documentation, AI, and settings."],
+    caseStudy: {
+      users: "Homeowners exploring a fictional renovation process, plus fictional contractor staff evaluating connected lead, project, field, estimating, and documentation workflows.",
+      problem: "Residential construction handoffs can separate public expectations from field operations, while a portfolio release must not imply real projects, pricing, scheduling, or contractor commitments.",
+      solution: "Pair a calm public planning journey with one guarded operations view, validated consultation intake, accountable statuses, and assistance that drafts guidance without committing the business.",
+      features: ["Residential service and fictional-project discovery", "Consultation and contact intake", "Guarded synthetic staff workspace", "Lead, project, schedule, estimate, and invoice views", "Deterministic human-reviewed BuildFlow Guide"],
+      implementation: ["Next.js, React, and TypeScript compose public routes, Server Actions, and guarded staff surfaces.", "Zod validation, same-origin checks, signed session cookies, upload limits, and file-signature checks define the request boundary.", "Drizzle models optional Neon persistence and private Vercel Blob adapters, while unavailable services fail visibly into non-persistent demonstration mode."],
+      architecture: "A Next.js application unifies public and staff surfaces with optional Vercel data adapters and a separately compatible Vinext build target.",
+      integrations: ["Optional Neon Postgres", "Optional Vercel Blob", "Optional Vercel AI SDK"], boundaries: ["All names, addresses, budgets, projects, records, and images are fictional or synthetic", "No real contractor service, production workforce identity, autonomous pricing or scheduling, outbound email, or enabled live AI is claimed"]
+    },
+    categories: ["AI", "Full stack", "Business operations"], technologies: ["Next.js", "React", "TypeScript", "Drizzle ORM", "Neon Postgres", "Vercel Blob"],
+    sourceUrl: "https://github.com/princeinoba/buildflow-ai", sourceAccess: "private", demoUrl: "https://buildflow-digital-demo.vercel.app/",
+    image: "buildflow-ai", imageAlt: "CP and Son BuildFlow home page with a renovation planning scene and consultation actions"
+  }),
   {
     id: "teoyube", title: "Teoyube App", tagline: "An earlier Scripture-focused concept for personalized discovery and animated guidance.",
     summary: "The original portfolio describes Teoyube as a Bible research and animation application connecting Scripture promises with a user's circumstances and purpose.",
